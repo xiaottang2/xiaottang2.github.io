@@ -3,17 +3,61 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xiaoting Tang&#39;s Blog</title>
+  <title>Machine-Learning-Paper-Rank | Xiaoting Tang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog. Technology about deep learning and data visualization">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoting Tang's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="这是一篇统计IEEE上关于机器学习论文的文章。我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？于是有了这篇文章。
+第一步，是获得数据。这一次我选择了IEEE Xplore作为数据来源。这是它的网站界面：
+
+让我们做一个简单的搜索，看看它的网站有什么变化：
+2我们发现搜索结果看起来是有结构的，很好！让我们再来看看它的HTML结构：
+
+我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-Paper-Rank">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/Machine-Learning-Scholar-Rank/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
-<meta property="og:description" content="My blog. Technology about deep learning and data visualization">
+<meta property="og:description" content="这是一篇统计IEEE上关于机器学习论文的文章。我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？于是有了这篇文章。
+第一步，是获得数据。这一次我选择了IEEE Xplore作为数据来源。这是它的网站界面：
+
+让我们做一个简单的搜索，看看它的网站有什么变化：
+2我们发现搜索结果看起来是有结构的，很好！让我们再来看看它的HTML结构：
+
+我们">
+<meta property="og:image" content="https://www.dropbox.com/s/rcmfmshb8vpzk91/Screenshot%202016-08-15%2009.52.50.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/kjdzsqjf5jg8qkm/Screenshot%202016-08-15%2009.54.30.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/pyhiek8rb8udsfo/Screenshot%202016-08-15%2009.57.08.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/pv4jkdg14qafobt/Screenshot%202016-08-15%2014.55.39.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/kwi0f5a896k85f3/ml.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/llhlrubjr9ze1w5/dm.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/1fs2co2ls23p5a2/dl.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/4fcw66dpvg08kmn/nn.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/azt7mt00ybg0zr4/ml_person.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/80jn4nqgx6x4r2t/dm_person.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/m295o3ajxt2kada/dl_person.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/522ubgw63n3axql/nn_person.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/nb0q5ofzd262tq1/ml_prolific_author.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/pp25ql47iytq3en/dm_prolific_author.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/agj3ursey1yapxu/dl_prolific_author.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/tb7yueo0e8544if/nn_prolific_author.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/v2lr60d4z39bosn/ml_journal.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/u3vuo0mjy0pp8c9/dm_journal.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/p0hmft1strhctwi/dl_journal.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/pfhycj6ptr5macq/nn_journal.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/mifsvubh7ceohn6/ml_wordcloud06.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/7df9hwe7vpqii1z/dm_wordcloud05.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/dj27rcxptfp11gv/dl_wordcloud05.png?dl=0">
+<meta property="og:image" content="https://www.dropbox.com/s/5tq1rpdp7slo82v/nn_wordcloud06.png?dl=0">
+<meta property="og:updated_time" content="2016-08-15T08:43:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaoting Tang's Blog">
-<meta name="twitter:description" content="My blog. Technology about deep learning and data visualization">
+<meta name="twitter:title" content="Machine-Learning-Paper-Rank">
+<meta name="twitter:description" content="这是一篇统计IEEE上关于机器学习论文的文章。我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？于是有了这篇文章。
+第一步，是获得数据。这一次我选择了IEEE Xplore作为数据来源。这是它的网站界面：
+
+让我们做一个简单的搜索，看看它的网站有什么变化：
+2我们发现搜索结果看起来是有结构的，很好！让我们再来看看它的HTML结构：
+
+我们">
+<meta name="twitter:image" content="https://www.dropbox.com/s/rcmfmshb8vpzk91/Screenshot%202016-08-15%2009.52.50.png?raw=1">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -62,80 +106,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/15/hello-world/" class="article-date">
-  <time datetime="2016-08-15T08:51:39.558Z" itemprop="datePublished">2016-08-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/hello-world/" data-id="cirvsx1uu0002p8ayvc71xmjj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Machine-Learning-Paper-Rank" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/15/Machine-Learning-Paper-Rank/" class="article-date">
-  <time datetime="2016-08-15T08:51:39.534Z" itemprop="datePublished">2016-08-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Machine-Learning-Paper-Rank/" data-id="cirvsx1u70000p8ay5x1v55hg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Machine-Learning-Scholar-Rank" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Machine-Learning-Scholar-Rank" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/15/Machine-Learning-Scholar-Rank/" class="article-date">
   <time datetime="2016-08-14T16:11:42.000Z" itemprop="datePublished">2016-08-15</time>
@@ -148,8 +119,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/Machine-Learning-Scholar-Rank/">Machine-Learning-Paper-Rank</a>
+    <h1 class="article-title" itemprop="name">
+      Machine-Learning-Paper-Rank
     </h1>
   
 
@@ -268,10 +239,23 @@
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/15/Machine-Learning-Paper-Rank/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 </section>
         
