@@ -5,22 +5,22 @@
   
   <title>tf.nn.conv2d里的padding解析 | Xiaoting Tang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+  <meta name="description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out\_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
 然而在Tensorflow里却不一样。
-tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tf.nn.conv2d里的padding解析">
 <meta property="og:url" content="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
-<meta property="og:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+<meta property="og:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out\_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
 然而在Tensorflow里却不一样。
-tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
-<meta property="og:updated_time" content="2016-09-18T04:15:20.000Z">
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认">
+<meta property="og:updated_time" content="2016-09-18T04:15:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tf.nn.conv2d里的padding解析">
-<meta name="twitter:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+<meta name="twitter:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out\_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
 然而在Tensorflow里却不一样。
-tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -91,7 +91,7 @@ tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。<br>根据<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">CS231n</a>的说法:<br>$$ out_width = (W-F+2P)/S + 1 $$<br>W是图像宽度，F是filter宽度，P是padding, S是stride。</p>
+        <p>Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。<br>根据<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">CS231n</a>的说法:<br>$$ out\_width = (W-F+2P)/S + 1 $$<br>W是图像宽度，F是filter宽度，P是padding, S是stride。</p>
 <p>然而在Tensorflow里却不一样。</p>
 <p>tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为’SAME’就是使得out_width和in_width一样，其实不是的。</p>
 <p>根据官方的<a href="https://www.tensorflow.org/versions/r0.10/api_docs/python/nn.html#convolution" target="_blank" rel="external">计算公式</a>:</p>
@@ -103,7 +103,7 @@ tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="cit840tb40000dnabwi2inr2m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="cit841g850001eaabjwx971wf" class="article-share-link">Share</a>
       
       
     </footer>
