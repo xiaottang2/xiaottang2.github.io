@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archieven | Xiaoting Tang&#39;s Blog</title>
+  <title>tf.nn.conv2d里的padding解析 | Xiaoting Tang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog. Technology about deep learning and data visualization">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoting Tang's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+然而在Tensorflow里却不一样。
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tf.nn.conv2d里的padding解析">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
-<meta property="og:description" content="My blog. Technology about deep learning and data visualization">
+<meta property="og:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+然而在Tensorflow里却不一样。
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
+<meta property="og:updated_time" content="2016-09-18T03:50:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaoting Tang's Blog">
-<meta name="twitter:description" content="My blog. Technology about deep learning and data visualization">
+<meta name="twitter:title" content="tf.nn.conv2d里的padding解析">
+<meta name="twitter:description" content="Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。根据CS231n的说法:$$ out_width = (W-F+2P)/S + 1 $$W是图像宽度，F是filter宽度，P是padding, S是stride。
+然而在Tensorflow里却不一样。
+tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -62,77 +69,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/18/SAME_is_not_same_in_tf/" class="archive-article-date">
-  <time datetime="2016-09-18T03:40:00.000Z" itemprop="datePublished">Sep 18</time>
+        <section id="main"><article id="post-SAME_is_not_same_in_tf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/18/SAME_is_not_same_in_tf/" class="article-date">
+  <time datetime="2016-09-18T03:40:00.000Z" itemprop="datePublished">2016-09-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/18/SAME_is_not_same_in_tf/">tf.nn.conv2d里的padding解析</a>
+    <h1 class="article-title" itemprop="name">
+      tf.nn.conv2d里的padding解析
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/17/macOS_Sierra_on_PC/" class="archive-article-date">
-  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">Sep 17</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/17/macOS_Sierra_on_PC/">在PC上安装macOS Sierra</a>
-    </h1>
-  
+        <p>Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。<br>根据<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">CS231n</a>的说法:<br>$$ out_width = (W-F+2P)/S + 1 $$<br>W是图像宽度，F是filter宽度，P是padding, S是stride。</p>
+<p>然而在Tensorflow里却不一样。</p>
+<p>tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为’SAME’就是使得out_width和in_width一样，其实不是的。</p>
+<p>根据官方的<a href="https://www.tensorflow.org/versions/r0.10/api_docs/python/nn.html#convolution" target="_blank" rel="external">计算公式</a>:</p>
+<p>$$ out_width = ceil(float(in_width) / float(strides[2])) $$</p>
+<p>举个栗子， in_width = 28， strides = [1, 2, 2, 1] 那么：</p>
+<p>$$ out_width = ceil( 28. / 2. ) = 14 $$, 并不是想当然的28哦。</p>
+<p>那么问题来了，为什么要给这个选项取名’SAME’呢？</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/08/15/Machine-Learning-Scholar-Rank/" class="archive-article-date">
-  <time datetime="2016-08-14T16:11:42.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/15/Machine-Learning-Scholar-Rank/">机器学习论文的统计</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="cit836ib40002jpab7f6vb35l" class="article-share-link">Delen</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/17/macOS_Sierra_on_PC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">在PC上安装macOS Sierra</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
