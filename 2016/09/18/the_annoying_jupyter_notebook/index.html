@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。
 我打算在一个新的conda环境里安装tensorflow，我是这么做的：(Mac OS X, GPU enabled, Python 2.7)
-用下面的代码创建一个新的环境：[创建conda env] []1$ conda env create -n">
+用下面的代码创建一个新的环境：[]1$ conda env create -n tensorflow pyt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jupyter notebook调用不同environment解决方案">
 <meta property="og:url" content="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
 <meta property="og:description" content="如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。
 我打算在一个新的conda环境里安装tensorflow，我是这么做的：(Mac OS X, GPU enabled, Python 2.7)
-用下面的代码创建一个新的环境：[创建conda env] []1$ conda env create -n">
-<meta property="og:updated_time" content="2016-09-18T15:31:39.000Z">
+用下面的代码创建一个新的环境：[]1$ conda env create -n tensorflow pyt">
+<meta property="og:updated_time" content="2016-09-18T15:36:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jupyter notebook调用不同environment解决方案">
 <meta name="twitter:description" content="如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。
 我打算在一个新的conda环境里安装tensorflow，我是这么做的：(Mac OS X, GPU enabled, Python 2.7)
-用下面的代码创建一个新的环境：[创建conda env] []1$ conda env create -n">
+用下面的代码创建一个新的环境：[]1$ conda env create -n tensorflow pyt">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -60,7 +60,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -93,28 +93,30 @@
       
         <p>如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。</p>
 <p>我打算在一个新的conda环境里安装tensorflow，我是这么做的：<br>(Mac OS X, GPU enabled, Python 2.7)</p>
-<p>用下面的代码创建一个新的环境：<br><figure class="highlight bash"><figcaption><span>[创建conda env] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conda env create -n tensorflow python=2.7</div></pre></td></tr></table></figure></p>
-<p>之后activate它：<br><figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">source</span> activate tensorflow</div></pre></td></tr></table></figure></p>
-<p>接着安装tensorflow:<br><figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ <span class="built_in">export</span> TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow-0.10.0-py2-none-any.whl</div><div class="line">(tensorflow)$ pip install --ignore-installed --upgrade <span class="variable">$TF_BINARY_URL</span></div></pre></td></tr></table></figure></p>
-<p>成功之后，我很高兴，所以我二话不说就打开了jupyter notebook:<br><figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ jupyter notebook</div></pre></td></tr></table></figure></p>
-<p>结果，系统报错： <strong>No module named tensorflow</strong><br>于是我退出，用<figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ <span class="built_in">which</span> jupyter</div></pre></td></tr></table></figure>查看了一下我正在使用的jupyter, 结果令人失望：<br><figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/jasontang/anaconda/bin/jupyter</div></pre></td></tr></table></figure></p>
+<p>用下面的代码创建一个新的环境：<br><figure class="highlight bash"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conda env create -n tensorflow python=2.7</div></pre></td></tr></table></figure></p>
+<p>之后activate它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source activate tensorflow</div></pre></td></tr></table></figure></p>
+<p>接着安装tensorflow:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow-0.10.0-py2-none-any.whl</div><div class="line">(tensorflow)$ pip install --ignore-installed --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
+<p>成功之后，我很高兴，所以我二话不说就打开了jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ jupyter notebook</div></pre></td></tr></table></figure></p>
+<p>结果，系统报错： <strong>No module named tensorflow</strong><br>于是我退出，用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ which jupyter</div></pre></td></tr></table></figure>查看了一下我正在使用的jupyter, 结果令人失望：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/jasontang/anaconda/bin/jupyter</div></pre></td></tr></table></figure></p>
 <p>根本没有使用tensorflow env里的jupyter，怪不得报错！</p>
 <p>可是我明明转换了环境呀，如果转换环境不能转换executable的路径的话，转换环境又有什么用呢？</p>
-<p>###解决方法</p>
+<h3>解决方法</h3>
+
 <p>首先运行：</p>
-<figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -m IPython kernelspec install-self</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -m IPython kernelspec install-self</div></pre></td></tr></table></figure>
 <p>然后：</p>
-<figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/<span class="built_in">local</span>/share/jupyter/kernels/python2/kernel.json</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/local/share/jupyter/kernels/python2/kernel.json</div></pre></td></tr></table></figure>
 <p>将 </p>
-<figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="string">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="string">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="string">"argv"</span>: [</div><div class="line">  <span class="string">"/Users/yourname/anaconda/bin/python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>改成<br><figure class="highlight bash"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="string">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="string">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="string">"argv"</span>: [</div><div class="line">  <span class="string">"python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>###为什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;display_name&quot;: &quot;Python 2&quot;,</div><div class="line"> &quot;language&quot;: &quot;python&quot;,   </div><div class="line"> &quot;argv&quot;: [</div><div class="line">  &quot;/Users/yourname/anaconda/bin/python&quot;,  &lt;-- Change this line</div><div class="line">  &quot;-m&quot;,</div><div class="line">  &quot;ipykernel&quot;,</div><div class="line">  &quot;-f&quot;,</div><div class="line">  &quot;&#123;connection_file&#125;&quot;</div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;display_name&quot;: &quot;Python 2&quot;,</div><div class="line"> &quot;language&quot;: &quot;python&quot;,   </div><div class="line"> &quot;argv&quot;: [</div><div class="line">  &quot;python&quot;,  &lt;-- Change this line</div><div class="line">  &quot;-m&quot;,</div><div class="line">  &quot;ipykernel&quot;,</div><div class="line">  &quot;-f&quot;,</div><div class="line">  &quot;&#123;connection_file&#125;&quot;</div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3>为什么</h3>
+
 <p>首先，要怪的话就怪jupyter的设计。jupyter使用的kernel是根据kernel.json里定义的python路径来选择，而当我们使用source activate tensorflow的时候，这份kernel.json并没有被改变。<br>当我们将”/Users/yourname/anaconda/bin/python”改成”python”时， 系统会自动去PATH里寻找默认的python executable，这时它会找到环境里的python。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/" data-id="cit8s71qa0001gmab2tta0rtp" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/" data-id="cit8scesm0001j2abe9is8y27" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jupyter-Notebook-Environment-Anaconda/">Jupyter Notebook Environment Anaconda</a></li></ul>
@@ -127,7 +129,7 @@
   
   
     <a href="/2016/09/18/SAME_is_not_same_in_tf/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">tf.nn.conv2d里的padding解析</div>
     </a>
   
@@ -145,7 +147,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter-Notebook-Environment-Anaconda/">Jupyter Notebook Environment Anaconda</a></li></ul>
     </div>
@@ -164,7 +166,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
     </div>
@@ -174,7 +176,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
