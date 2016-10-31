@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
 <meta property="og:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
 <meta property="og:image" content="https://www.dropbox.com/s/93cp4y7w0946db4/Screenshot%202016-10-31%2019.45.42.png?raw=1">
-<meta property="og:updated_time" content="2016-10-31T11:53:54.000Z">
+<meta property="og:updated_time" content="2016-10-31T11:55:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="question_diff_privacy">
 <meta name="twitter:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
@@ -93,12 +93,12 @@
 <p>Pay attention to <strong>Add noise</strong>, where we sample a noise from a gaussian distribution to every gradient in the network of the current example $i$.</p>
 <p>According to the this paper and this <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="external">book</a>, the consequence of this algorithm is that it makes the gradient update a $(\epsilon,\delta)$ differential private mechanism. But what does that mean?</p>
 <p>It means for a mechanism $\mathcal{M}$ and two two different datasets $d$ and $d’$, which differs only in one entity(think <strong>row</strong> in a spreadsheet) – one has an entity and the other does not, the following equation holds.</p>
-<p>$$Pr[\mathcal{M}(d)=\ksi]\lessthan e^\epsilon Pr[\mathcal{M}(d’)=\ksi]$$</p>
+<p>$$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]$$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy0c4gr0006zgaywhowpdbi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy0ep0v00042bay97oi9q8a" class="article-share-link">Share</a>
       
       
     </footer>
