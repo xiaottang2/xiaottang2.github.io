@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
 <meta property="og:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
 <meta property="og:image" content="https://www.dropbox.com/s/93cp4y7w0946db4/Screenshot%202016-10-31%2019.45.42.png?raw=1">
-<meta property="og:updated_time" content="2016-10-31T12:57:02.000Z">
+<meta property="og:updated_time" content="2016-10-31T12:57:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="question_diff_privacy">
 <meta name="twitter:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
@@ -99,14 +99,14 @@
 <p>Suppose a hospital has 1000 records of blood sugar levels of patients who have diabetics, which is supposed to be private. However, in order to facilitate medical research, doctors decide to release the data to the public in a way they think it’s safe – release only the average blood sugar level. But is it really safe? Potentially not.</p>
 <p>What the doctors haven’t foreseen is that by comparing the average result in different time, a malicious person can extract personal information from the average. </p>
 <p>K is a data digger whose interest is digging other people’s private info and he has a lot of friends in different industry who can offer him such information. K has a friend in the hospital, but he can only know how many records are in the dataset, and who are in the dataset. They way K can extract information is that he query the medical record system every day, and he asked his friend to send him a message whenever the names in the record changes. One day K received a message, telling him that another patient’s data has been uploaded in the record. K queried again, get the new average value and he used the following equation to get the blood sugar level of the new patient</p>
-<p>$ x_{new_patient} = {avg}_2<em>1001 - {avg}_1</em>1000 $</p>
+<p>$ x_{new_patient} = {avg}_2\times1001 - {avg}_1\times1000 $</p>
 <p>Now that you see how insecure an aggregate function can be, let’s find out what the equation $$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]+\delta$$ has to say.</p>
 <p>According to the theory(see the book mentioned above, the first chapter), a function $f$ can be protected by a mechanism $\mathcal{M}$ like this: $\mathcal{M}(d) = f(d) + \mathcal{N}(0, \sigma S_f)$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy2lc350005qdayrpobr6nr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy2msbp0005sjaycdhqt8au" class="article-share-link">Share</a>
       
       
     </footer>
