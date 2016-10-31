@@ -92,12 +92,20 @@
 <p>Pay attention to <strong>Add noise</strong>, where we sample a noise from a gaussian distribution to every gradient in the network of the current example $i$.</p>
 <p>According to the this paper and this <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="external">book</a>, the consequence of this algorithm is that it makes the gradient update a $(\epsilon,\delta)$ differential private mechanism. But what does that mean?</p>
 <p>It means for a mechanism $\mathcal{M}$ and two two different datasets $d$ and $d’$, which differs only in one entity(think <strong>row</strong> in a spreadsheet) – one has an entity and the other does not, the following equation holds.</p>
-<p>$$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]$$</p>
+<p>$$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]+\delta$$</p>
+<p>I felt the same way you felt about this equation – what does it say? You may have a guess that it is about probability, you are right, but to know better than average, let’s give it a concrete example.</p>
+<hr>
+<p>Suppose a hospital has 1000 records of blood sugar levels of patients who have diabetics, which is supposed to be private. However, in order to facilitate medical research, doctors decide to release the data to the public in a way they think it’s safe – release only the average blood sugar level. But is it really safe? Potentially not.</p>
+<p>What the doctors haven’t foreseen is that by comparing the average result in different time, a malicious person can extract personal information from the average. </p>
+<p>K is a data digger whose interest is digging other people’s private info and he has a lot of friends in different industry who can offer him such information. K has a friend in the hospital, but he can only know how many records are in the dataset, and who are in the dataset. They way K can extract information is that he query the medical record system every day, and he asked his friend to send him a message whenever the names in the record changes. One day K received a message, telling him that another patient’s data has been uploaded in the record. K queried again, get the new average value and he used the following equation to get the blood sugar level of the new patient</p>
+<p>$$x_{new patient} = avg_2<em>1001 - avg_1</em>1000$$</p>
+<p>Now that you see how insecure an aggregate function can be, let’s find out what the equation $$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]+\delta$$ has to say.</p>
+<p>According to the theory(see the book mentioned above, the first chapter), a function $f$ can be protected by a mechanism $\mathcal{M}$ like this: $\mathcal{M}(d) = f(d) + \mathcal{N}(0, \sigma S_f)$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy0ep0v00042bay97oi9q8a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuy2i64g0004lway3ubf79mm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -519,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/data-sceince-portfolio-machine-learning-project/" data-id="ciuy0ep0x00052baydgxugumz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/data-sceince-portfolio-machine-learning-project/" data-id="ciuy2i64i0005lwayjdvhwbti" class="article-share-link">Share</a>
       
       
     </footer>
@@ -576,7 +584,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/" data-id="ciuy0ep1200062bayk678xqr9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/" data-id="ciuy2i64m0006lwayzxa9a48k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jupyter-Notebook-Environment-Anaconda/">Jupyter Notebook Environment Anaconda</a></li></ul>
@@ -622,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="ciuy0ep0m00012bay6437thj5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="ciuy2i6470001lwayq5fz9qcf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -681,7 +689,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/17/macOS_Sierra_on_PC/" data-id="ciuy0ep0t00032bayxusw3aw1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/17/macOS_Sierra_on_PC/" data-id="ciuy2i64e0003lwayagth5c55" class="article-share-link">Share</a>
       
       
     </footer>
@@ -819,7 +827,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Machine-Learning-Scholar-Rank/" data-id="ciuy0ep0g00002bayp6cn6zyb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/15/Machine-Learning-Scholar-Rank/" data-id="ciuy2i6400000lwaytdood1ac" class="article-share-link">Share</a>
       
       
     </footer>
