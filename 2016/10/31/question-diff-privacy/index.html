@@ -3,17 +3,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Archives: 2016/8 | Xiaoting Tang&#39;s Blog</title>
+  <title>question_diff_privacy | Xiaoting Tang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog. Technology about deep learning and data visualization">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoting Tang's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/08/index.html">
+  <meta name="description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="question_diff_privacy">
+<meta property="og:url" content="http://yoursite.com/2016/10/31/question-diff-privacy/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
-<meta property="og:description" content="My blog. Technology about deep learning and data visualization">
+<meta property="og:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
+<meta property="og:updated_time" content="2016-10-31T11:41:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaoting Tang's Blog">
-<meta name="twitter:description" content="My blog. Technology about deep learning and data visualization">
+<meta name="twitter:title" content="question_diff_privacy">
+<meta name="twitter:description" content="Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -62,39 +63,54 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/08/15/Machine-Learning-Scholar-Rank/" class="archive-article-date">
-  <time datetime="2016-08-14T16:11:42.000Z" itemprop="datePublished">Aug 15</time>
+        <section id="main"><article id="post-question-diff-privacy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/31/question-diff-privacy/" class="article-date">
+  <time datetime="2016-10-31T09:38:35.000Z" itemprop="datePublished">2016-10-31</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/15/Machine-Learning-Scholar-Rank/">机器学习论文的统计</a>
+    <h1 class="article-title" itemprop="name">
+      question_diff_privacy
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the weights in the opposite direction of the <strong>gradients</strong>(which is what we usually do), we use a noised version of gradients.</p>
+<p>Here I cite the differential privacy algorithm from <a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45428.pdf" target="_blank" rel="external">Martin Abadi et al.</a>.</p>
+<p>$$<br>\begin{algorithm}[H]<br> \KwData{this text}<br> \KwResult{how to write algorithm with \LaTeX2e }<br> initialization\;<br> \While{not at end of this document}{<br>  read current\;<br>  \eIf{understand}{<br>   go to next section\;<br>   current section becomes this one\;<br>   }{<br>   go back to the beginning of current section\;<br>  }<br> }<br> \caption{How to write algorithms}<br>\end{algorithm}<br>$$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuxzwabz0006kuayutf9cut1" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/12/moeny-save-plan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">moeny_save_plan</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
@@ -194,6 +210,23 @@
 
 <script src="/js/script.js"></script>
 
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

@@ -3,17 +3,34 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Xiaoting Tang&#39;s Blog</title>
+  <title>构建数据科学的作品集：从机器学习项目开始 | Xiaoting Tang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog. Technology about deep learning and data visualization">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoting Tang's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="##构建数据科学的作品集：从机器学习项目开始
+本文是如何建立数据科学作品的第三步曲。如果你喜欢并想要知本系列的下一篇文章什么时候发布，可以在文末订阅。
+数据科学公司在决定是否雇佣的时候越来越看重应聘者的作品集。其中一个原因是作品集是最好判断一个人的真实技能的方法。好消息是你的作品集其实完全在你掌控之中。如果你花精力在上面，你就可以做出一个让公司刮目相看的作品集。
+建立一个高质量的作品的第一步是要知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建数据科学的作品集：从机器学习项目开始">
+<meta property="og:url" content="http://yoursite.com/2016/09/21/data-sceince-portfolio-machine-learning-project/index.html">
 <meta property="og:site_name" content="Xiaoting Tang's Blog">
-<meta property="og:description" content="My blog. Technology about deep learning and data visualization">
+<meta property="og:description" content="##构建数据科学的作品集：从机器学习项目开始
+本文是如何建立数据科学作品的第三步曲。如果你喜欢并想要知本系列的下一篇文章什么时候发布，可以在文末订阅。
+数据科学公司在决定是否雇佣的时候越来越看重应聘者的作品集。其中一个原因是作品集是最好判断一个人的真实技能的方法。好消息是你的作品集其实完全在你掌控之中。如果你花精力在上面，你就可以做出一个让公司刮目相看的作品集。
+建立一个高质量的作品的第一步是要知">
+<meta property="og:image" content="https://www.dataquest.io/blog/images/end_to_end/github.png">
+<meta property="og:image" content="https://www.dataquest.io/blog/images/end_to_end/foreclosure.jpg">
+<meta property="og:image" content="https://www.dropbox.com/s/f0ld1ztm7w5lim6/Screenshot%202016-09-29%2021.56.18.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/cy5mueqz7vgxxa2/Screenshot%202016-09-29%2022.40.02.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/fumpjfvbim1ot9d/Screenshot%202016-09-29%2022.41.22.png?raw=1">
+<meta property="og:image" content="https://www.dropbox.com/s/vauljb4xp2qnz7n/Screenshot%202016-09-29%2023.16.57.png?raw=1">
+<meta property="og:updated_time" content="2016-09-29T16:26:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaoting Tang's Blog">
-<meta name="twitter:description" content="My blog. Technology about deep learning and data visualization">
+<meta name="twitter:title" content="构建数据科学的作品集：从机器学习项目开始">
+<meta name="twitter:description" content="##构建数据科学的作品集：从机器学习项目开始
+本文是如何建立数据科学作品的第三步曲。如果你喜欢并想要知本系列的下一篇文章什么时候发布，可以在文末订阅。
+数据科学公司在决定是否雇佣的时候越来越看重应聘者的作品集。其中一个原因是作品集是最好判断一个人的真实技能的方法。好消息是你的作品集其实完全在你掌控之中。如果你花精力在上面，你就可以做出一个让公司刮目相看的作品集。
+建立一个高质量的作品的第一步是要知">
+<meta name="twitter:image" content="https://www.dataquest.io/blog/images/end_to_end/github.png">
   
     <link rel="alternate" href="/atom.xml" title="Xiaoting Tang&#39;s Blog" type="application/atom+xml">
   
@@ -62,89 +79,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-question-diff-privacy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/31/question-diff-privacy/" class="article-date">
-  <time datetime="2016-10-31T09:38:35.000Z" itemprop="datePublished">2016-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/question-diff-privacy/">question_diff_privacy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Recently I am working on a research project about bringing privacy into deep learning. The basic idea is when we are training our model, usually in Stochastic Gradient Descent, instead of changing the weights in the opposite direction of the <strong>gradients</strong>(which is what we usually do), we use a noised version of gradients.</p>
-<p>Here I cite the differential privacy algorithm from <a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45428.pdf" target="_blank" rel="external">Martin Abadi et al.</a>.</p>
-<p>$$<br>\begin{algorithm}[H]<br> \KwData{this text}<br> \KwResult{how to write algorithm with \LaTeX2e }<br> initialization\;<br> \While{not at end of this document}{<br>  read current\;<br>  \eIf{understand}{<br>   go to next section\;<br>   current section becomes this one\;<br>   }{<br>   go back to the beginning of current section\;<br>  }<br> }<br> \caption{How to write algorithms}<br>\end{algorithm}<br>$$</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/question-diff-privacy/" data-id="ciuxzwabz0006kuayutf9cut1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-moeny-save-plan" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/12/moeny-save-plan/" class="article-date">
-  <time datetime="2016-10-12T14:05:45.000Z" itemprop="datePublished">2016-10-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/12/moeny-save-plan/">moeny_save_plan</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为了剩下钱去洛杉矶,我们开始了省钱计划.<br>我们计划每天在家做饭,估计每人每个星期的伙食费是400块.<br>也就是说我们平均每天用来吃的钱大概是100多一点.</p>
-<p>开始吧!</p>
-<p>2016-10-12<br>猪肉 27<br>尖椒 6.4</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/moeny-save-plan/" data-id="ciuxzwabv0005kuayd05u9z93" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    [object Promise]
-  
-    <article id="post-data-sceince-portfolio-machine-learning-project" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-data-sceince-portfolio-machine-learning-project" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/21/data-sceince-portfolio-machine-learning-project/" class="article-date">
   <time datetime="2016-09-21T13:38:24.000Z" itemprop="datePublished">2016-09-21</time>
@@ -157,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/data-sceince-portfolio-machine-learning-project/">构建数据科学的作品集：从机器学习项目开始</a>
+    <h1 class="article-title" itemprop="name">
+      构建数据科学的作品集：从机器学习项目开始
     </h1>
   
 
@@ -560,310 +495,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-the_annoying_jupyter_notebook" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/18/the_annoying_jupyter_notebook/" class="article-date">
-  <time datetime="2016-09-18T15:05:00.000Z" itemprop="datePublished">2016-09-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2016/09/26/data-sceince-portfolio-machine-learning-project/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/18/the_annoying_jupyter_notebook/">jupyter notebook调用不同environment解决方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。</p>
-<p>我打算在一个新的conda环境里安装tensorflow，我是这么做的：<br>(Mac OS X, GPU enabled, Python 2.7)</p>
-<p>用下面的代码创建一个新的环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conda env create -n tensorflow python=2.7</div></pre></td></tr></table></figure></p>
-<p>之后activate它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source activate tensorflow</div></pre></td></tr></table></figure></p>
-<p>接着安装tensorflow:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow-0.10.0-py2-none-any.whl</div><div class="line">(tensorflow)$ pip install --ignore-installed --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
-<p>成功之后，我很高兴，所以我二话不说就打开了jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ jupyter notebook</div></pre></td></tr></table></figure></p>
-<p>结果，系统报错： <strong>No module named tensorflow</strong><br>于是我退出，用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ which jupyter</div></pre></td></tr></table></figure>查看了一下我正在使用的jupyter, 结果令人失望：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/jasontang/anaconda/bin/jupyter</div></pre></td></tr></table></figure></p>
-<p>根本没有使用tensorflow env里的jupyter，怪不得报错！</p>
-<p>可是我明明转换了环境呀，如果转换环境不能转换executable的路径的话，转换环境又有什么用呢？</p>
-<h3>解决方法</h3>
-
-<p>首先运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -m IPython kernelspec install-self</div></pre></td></tr></table></figure>
-<p>然后：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/local/share/jupyter/kernels/python2/kernel.json</div></pre></td></tr></table></figure>
-<p>将 </p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="attr">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="attr">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="attr">"argv"</span>: [</div><div class="line">  <span class="string">"/Users/yourname/anaconda/bin/python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>改成<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="attr">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="attr">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="attr">"argv"</span>: [</div><div class="line">  <span class="string">"python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3>为什么</h3>
-
-<p>首先，要怪的话就怪jupyter的设计。jupyter使用的kernel是根据kernel.json里定义的python路径来选择，而当我们使用source activate tensorflow的时候，这份kernel.json并没有被改变。<br>当我们将”/Users/yourname/anaconda/bin/python”改成”python”时， 系统会自动去PATH里寻找默认的python executable，这时它会找到环境里的python。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/the_annoying_jupyter_notebook/" data-id="ciuxzwac10007kuayrvpyvtzw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jupyter-Notebook-Environment-Anaconda/">Jupyter Notebook Environment Anaconda</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-SAME_is_not_same_in_tf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/18/SAME_is_not_same_in_tf/" class="article-date">
-  <time datetime="2016-09-18T03:40:00.000Z" itemprop="datePublished">2016-09-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          (no title)
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/18/SAME_is_not_same_in_tf/">tf.nn.conv2d里的padding解析</a>
-    </h1>
   
+    <a href="/2016/09/18/the_annoying_jupyter_notebook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jupyter notebook调用不同environment解决方案</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。<br>根据<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">CS231n</a>的说法:<br>$$ out\_width = (W-F+2P)/S + 1 $$<br>W是图像宽度，F是filter宽度，P是padding, S是stride。</p>
-<p>然而在Tensorflow里却不一样。</p>
-<p>tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为’SAME’就是使得out_width和in_width一样，其实不是的。</p>
-<p>根据官方的<a href="https://www.tensorflow.org/versions/r0.10/api_docs/python/nn.html#convolution" target="_blank" rel="external">计算公式</a>:</p>
-<p>$$ out\_width = ceil(float(in\_width) / float(strides[2])) $$</p>
-<p>举个栗子， in_width = 28， strides = [1, 2, 2, 1] 那么：</p>
-<p>$$ out\_width = ceil( 28. / 2. ) = 14 $$<br>并不是想当然的28哦。</p>
-<p>那么问题来了，为什么要给这个选项取名’SAME’呢？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/18/SAME_is_not_same_in_tf/" data-id="ciuxzwabk0001kuaym2wqnnu3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-macOS_Sierra_on_PC" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/17/macOS_Sierra_on_PC/" class="article-date">
-  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/17/macOS_Sierra_on_PC/">在PC上安装macOS Sierra</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我花了两天时间，断断续续地在一台PC上安装了最新的macOS Sierra：<br><img src="https://www.dropbox.com/s/cqt6uq3y2swkkx4/Screenshot%202016-09-17%2017.13.20.png?raw=1" alt=""></p>
-<p>安装的过程无比艰辛。</p>
-<p>我主要参考了两个Post， <a href="http://www.tonymacx86.com/threads/unibeast-install-os-x-el-capitan-on-any-supported-intel-based-pc.172672/#download_elcap" target="_blank" rel="external">TonyMacx86</a> 和 <a href="https://www.youtube.com/watch?v=Cw0O_cesGJo" target="_blank" rel="external">Cat and Andrew</a> （Youtube, 推荐这个），稍后我会把视频上传到国内网站上。</p>
-<p>之所以想安装黑苹果，是因为我不想浪费了自己的GTX970。如果你和我一样需要用到GTX 700或更新的GPU，就需要注意下面这几点：</p>
-<p>— 按Cat and Andrew步骤安装好之后， 找到电脑的Model Number, 如图：<br><img src="https://www.dropbox.com/s/dsgco1hotkwh4y0/Screenshot%202016-09-17%2017.28.03.png?raw=1" alt=""></p>
-<ul>
-<li><p>按着这个Model Number，去<a href="http://www.insanelymac.com/forum/topic/312525-nvidia-web-driver-updates-for-macos-sierra-update-08292016/page-1" target="_blank" rel="external">这里</a>下载对应的Nvidia Web Driver</p>
-</li>
-<li><p>安装Web Driver</p>
-</li>
-<li><p>重启， 添加boot arg: “nv_disable=1” (不含引号)</p>
-</li>
-<li><p>改变Driver， 使用Nvidia Web Driver， 如图:<br><img src="https://www.dropbox.com/s/38suagcgfyohhcv/Screenshot%202016-09-17%2017.31.09.png?raw=1" alt=""></p>
-</li>
-<li><p>重启， 添加boot arg: “nvda_drv=1” </p>
-</li>
-<li><p>现在系统应该可以使用Nvidia Web Driver了， 看一看：<br><img src="https://www.dropbox.com/s/00nckirrhbv75gv/Screenshot%202016-09-17%2017.33.47.png?raw=1" alt=""> 哎呀不是？<br>点一下就可以了。<br><img src="https://www.dropbox.com/s/1k28a24otdiq1nh/Screenshot%202016-09-17%2017.34.29.png?raw=1" alt=""></p>
-</li>
-</ul>
-<p>这样就装好了一台使用NVIDIA Web Driver的Mac！这样做的好处在于，你可以任意安装自己喜欢的GPU（980, Titan, 1080 etc.）</p>
-<p>因为就算几万块的Mac Pro 也不会配备高端的GPU（扼腕， 这真的是苹果高端电脑的弊端），所以你的黑苹果可以算是苹果机中的战斗机了（在你有好配置的前提下）。</p>
-<p><img src="http://cdn2.macworld.co.uk/cmsdata/features/3536364/Mac-Pro-Front-Back.jpg" alt=""></p>
-<p>还在等什么？赶紧把你家的PC备份，装个战斗机！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/17/macOS_Sierra_on_PC/" data-id="ciuxzwabr0003kuaymtnk18wq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Machine-Learning-Scholar-Rank" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/15/Machine-Learning-Scholar-Rank/" class="article-date">
-  <time datetime="2016-08-14T16:11:42.000Z" itemprop="datePublished">2016-08-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/Machine-Learning-Scholar-Rank/">机器学习论文的统计</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是一篇统计IEEE上关于机器学习论文的文章。<br>我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？<br>于是有了这篇文章。</p>
-<p>第一步，是获得数据。这一次我选择了IEEE Xplore作为数据来源。这是它的网站界面：</p>
-<p><img src="https://www.dropbox.com/s/rcmfmshb8vpzk91/Screenshot%202016-08-15%2009.52.50.png?raw=1" alt=""></p>
-<p>让我们做一个简单的搜索，看看它的网站有什么变化：</p>
-<p><img src="https://www.dropbox.com/s/kjdzsqjf5jg8qkm/Screenshot%202016-08-15%2009.54.30.png?raw=1" alt=""></p>
-<p>我们发现搜索结果看起来是有结构的，很好！让我们再来看看它的HTML结构：</p>
-<p><img src="https://www.dropbox.com/s/pyhiek8rb8udsfo/Screenshot%202016-08-15%2009.57.08.png?raw=1" alt=""></p>
-<p>我们发现每一个搜索结果都被包裹在一个div里面，这个div的类是List-results-items。我们还可以看一眼div里面的结构，发现我们关心的几个数据：<strong>标题</strong>，<strong>年份</strong>， <strong>作者</strong>，<strong>引用次数</strong>，<strong>期刊</strong>， <strong>摘要</strong>。</p>
-<p>我打算写一个python的爬虫，先把网页的源代码扒下来，然后再对源代码进行解析，最后通过不同的HTML Tag取得我们想要的数据。</p>
-<p>我一开始尝试使用urllib2进行访问，但获取到的源代码里并没有我想要的东西，于是我意识到这是一个动态网页，我们需要用一些动态网页的包进行访问。什么是动态网页呢? 简单的说，就是部分（或全部）内容是由Javascript生成的。这也解释了为什么一开始用urllib2进行访问不成功的原因，因为urllib2的请求并没有执行JS的能力，所以我们要的论文信息就不会被捕捉到。</p>
-<p>讲了这么多，实际有一个叫做<a href="http://www.seleniumhq.org/" target="_blank" rel="external">selenium</a>的包就能做动态网页的请求。简单地说，selenium是一个为自动化网站测试而开发的程序，它几乎可以在各个方面模拟一个浏览器的行为。Selenium还有一个<a href="http://selenium-python.readthedocs.io/" target="_blank" rel="external">python的封包</a>，正是我想要的。</p>
-<p>安装selenium很简单， 用pip的话：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install selenium</div></pre></td></tr></table></figure>
-<p>用conda的话：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c metaperl selenium=2.40.0</div></pre></td></tr></table></figure>
-<p>安装好了之后，打开你最喜欢的python编辑器<br>下面是一段简单的selenium 代码, 打开一个Firefox浏览器的实例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"></div><div class="line">driver = webdriver.Firefox()</div></pre></td></tr></table></figure>
-<p>一个新的Firefox浏览器应该会弹出来。</p>
-<p>之后，我拟定了四个主题：’Machine Learning’, ‘Deep Learning’, ‘Data Mining’, ‘Neural Network’。我准备扒下IEEE Xplore里面关于这四个主题的所有paper信息。</p>
-<p>下面是我的准备工作：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">topics = &#123;&#125;</div><div class="line">ml = &#123;</div><div class="line">    <span class="string">'keyword'</span> : <span class="string">'machine%20learning'</span>,</div><div class="line">    <span class="string">'page_count'</span> : <span class="number">508</span>,</div><div class="line">    <span class="string">'total'</span>: <span class="number">50800</span>,</div><div class="line">&#125;</div><div class="line">dl = &#123;</div><div class="line">    <span class="string">'keyword'</span> : <span class="string">'deep%20learning'</span>,</div><div class="line">    <span class="string">'page_count'</span> : <span class="number">29</span>,</div><div class="line">    <span class="string">'total'</span> : <span class="number">2900</span>,</div><div class="line">&#125;</div><div class="line">nn = &#123;</div><div class="line">    <span class="string">'keyword'</span> : <span class="string">'neural%20network'</span>,</div><div class="line">    <span class="string">'page_count'</span> : <span class="number">1221</span>,</div><div class="line">    <span class="string">'total'</span> : <span class="number">122100</span>,</div><div class="line">&#125;</div><div class="line">dm = &#123;</div><div class="line">    <span class="string">'keyword'</span> : <span class="string">'data%20mining'</span>,</div><div class="line">    <span class="string">'page_count'</span> : <span class="number">847</span>,</div><div class="line">    <span class="string">'total'</span> : <span class="number">84700</span></div><div class="line">&#125;</div><div class="line">topics[<span class="string">'ml'</span>] = ml</div><div class="line">topics[<span class="string">'dl'</span>] = dl</div><div class="line">topics[<span class="string">'nn'</span>] = nn</div><div class="line">topics[<span class="string">'dm'</span>] = dm</div></pre></td></tr></table></figure>
-<p>上面的数字，比如<code>&#39;page_count&#39;: 508</code>, 是在每一页100份论文的前提下，IEEE XPlore的最大页数。</p>
-<p>准备工作完成，我们可以开始抓取source了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 抓取source 分步</span></div><div class="line">soups = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> topic <span class="keyword">in</span> topics:</div><div class="line">    print(<span class="string">'Topic: %s'</span>,topics[topic][<span class="string">'keyword'</span>])</div><div class="line"></div><div class="line">    length = topics[topic][<span class="string">'page_count'</span>]</div><div class="line">    pbar = ProgressBar(length)  <span class="comment"># 显示进度</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, topics[topic][<span class="string">'page_count'</span>]):        </div><div class="line">        driver.get(<span class="string">'http://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&amp;queryText='</span>+ topics[topic][<span class="string">'keyword'</span>] +<span class="string">'&amp;rowsPerPage=100&amp;pageNumber='</span>+str(i))</div><div class="line"></div><div class="line">        time.sleep(<span class="number">5</span>)</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> xrange(<span class="number">5</span>):  <span class="comment"># 重要： 因为网页只有下拉之后才会加载，所以这里连续下拉5次，每次留给服务器1秒钟的加载时间</span></div><div class="line">            driver.execute_script(<span class="string">"window.scrollTo(0, "</span>+ str(<span class="number">100000</span>) +<span class="string">");"</span>)</div><div class="line">            driver.execute_script(<span class="string">"window.scrollTo(0, document.body.scrollHeight);"</span>)</div><div class="line">            time.sleep(<span class="number">2</span>)</div><div class="line">        source = driver.page_source</div><div class="line">        soup = bs(source)</div><div class="line">        soups.append(soup)</div><div class="line"></div><div class="line">        pbar.increment()</div><div class="line"></div><div class="line">    pbar.finish()</div></pre></td></tr></table></figure>
-<p>事实证明，动态网页的抓取非常耗时，这里4个topic分别花了我:</p>
-<table>
-<thead>
-<tr>
-<th>主题</th>
-<th style="text-align:center">页数</th>
-<th style="text-align:right">时间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Machine Learning</td>
-<td style="text-align:center">508</td>
-<td style="text-align:right">7.29 hr</td>
-</tr>
-<tr>
-<td>Deep Learning</td>
-<td style="text-align:center">29</td>
-<td style="text-align:right">0.58 hr</td>
-</tr>
-<tr>
-<td>Data Mining</td>
-<td style="text-align:center">847</td>
-<td style="text-align:right">10.72 hr</td>
-</tr>
-<tr>
-<td>Neural Network</td>
-<td style="text-align:center">1221</td>
-<td style="text-align:right">9.74 hr</td>
-</tr>
-</tbody>
-</table>
-<p>也就是两天。</p>
-<p>不过，拿到的数据量还是非常可喜的，各个主题的源代码加在一起有1.33G左右。</p>
-<p>下面，就是分析的工作。我从源代码中发现的数据规律可以在这里应用：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Parsing</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> unicodecsv <span class="keyword">as</span> csv</div><div class="line"></div><div class="line">years = []</div><div class="line">titles = []</div><div class="line">authors = []</div><div class="line">publishers = []</div><div class="line">abstracts = []</div><div class="line">citeds = []</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">innerHTML</span><span class="params">(element)</span>:</span>  <span class="comment"># 获取节点中的内容</span></div><div class="line">    <span class="keyword">return</span> element.decode_contents(formatter=<span class="string">"html"</span>)</div><div class="line"></div><div class="line"></div><div class="line">base = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> topic <span class="keyword">in</span> topics:</div><div class="line">    <span class="keyword">for</span> soup <span class="keyword">in</span> soups[base:base+topics[topic][<span class="string">'page_count'</span>]]:</div><div class="line"></div><div class="line">        results = soup.select(<span class="string">'div.List-results-items'</span>)</div><div class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> results:</div><div class="line">            title = r.select(<span class="string">'h2 a.ng-binding'</span>)</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> title:</div><div class="line">                title = r.select(<span class="string">'h2 span'</span>)</div><div class="line">            year = r.select(<span class="string">'span[ng-if="::record.publicationYear"]'</span>)</div><div class="line">            author = r.select(<span class="string">'span[ng-bind-html="::author.preferredName"]'</span>)</div><div class="line">            publisher = r.select(<span class="string">'a[ng-bind-html="::record.publicationTitle"]'</span>)</div><div class="line">            abstract = r.select(<span class="string">'span[ng-bind-html="::record.abstract"]'</span>)</div><div class="line">            cited = r.select(<span class="string">'span[ng-if="::record.citationCount"]'</span>)</div><div class="line"></div><div class="line"></div><div class="line">            title, n = re.subn(<span class="string">"\\&lt;.*?\\&gt;"</span>, <span class="string">''</span>, innerHTML(title[<span class="number">0</span>]))</div><div class="line"></div><div class="line">            year, n = re.subn(<span class="string">"\\&lt;.*?\\&gt;"</span>, <span class="string">''</span>, innerHTML(year[<span class="number">0</span>]))</div><div class="line">            year, n = re.subn(<span class="string">'\s*?'</span>, <span class="string">''</span>, year) <span class="comment"># 去掉无用的空格</span></div><div class="line">            year, n = re.subn(<span class="string">'Year:'</span>, <span class="string">''</span>, year) <span class="comment"># 去电'Year:'字段</span></div><div class="line"></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> author:</div><div class="line">                author = <span class="string">u'No author'</span>  <span class="comment"># 可能出现没有作者的情况</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                author, n = re.subn(<span class="string">"\\&lt;.*?\\&gt;"</span>, <span class="string">''</span>, innerHTML(author[<span class="number">0</span>]))  <span class="comment"># 去掉内容里HTML标签的部分</span></div><div class="line"></div><div class="line">            publisher, n = re.subn(<span class="string">"\\&lt;.*?\\&gt;"</span>, <span class="string">''</span>, innerHTML(publisher[<span class="number">0</span>]))</div><div class="line"></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> abstract:</div><div class="line">                abstract = <span class="string">u'No Abstract'</span></div><div class="line">            <span class="keyword">else</span>:                </div><div class="line">                abstract, n = re.subn(<span class="string">"\\&lt;.*?\\&gt;"</span>, <span class="string">''</span>, innerHTML(abstract[<span class="number">0</span>]))</div><div class="line"></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> cited:</div><div class="line">                cited = <span class="string">u'0'</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                cited, n = re.subn(<span class="string">"&lt;.*?&gt;"</span>, <span class="string">''</span>, innerHTML(cited[<span class="number">0</span>]))</div><div class="line">                cited = cited.replace(<span class="string">'Papers('</span>, <span class="string">''</span>) <span class="comment"># 去掉Papers(字段</span></div><div class="line">                cited = cited.replace(<span class="string">')'</span>, <span class="string">''</span>) <span class="comment"># 去掉）</span></div><div class="line"></div><div class="line">            <span class="comment"># 把它们存在csv里</span></div><div class="line">            <span class="keyword">with</span> open(topic+<span class="string">'.csv'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> f:</div><div class="line">                writer = csv.writer(f, encoding=<span class="string">'utf8'</span>, delimiter=<span class="string">','</span>)</div><div class="line">                row = [title, author, year, cited, publisher, abstract]</div><div class="line">                writer.writerow(row)                </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    base += topics[topic][<span class="string">'page_count'</span>]</div></pre></td></tr></table></figure>
-<p>这样就得到了4个内容很整齐，去掉无关信息的csv文件。</p>
-<p>长这样：<br><img src="https://www.dropbox.com/s/pv4jkdg14qafobt/Screenshot%202016-08-15%2014.55.39.png?raw=1" alt=""></p>
-<p>值得一提的是，超过1.33G的源代码信息，经过我们的处理之后，每个csv文件只有20MB左右大小。<br>不由得感叹一句，大数据虽大，但是可能有用的数据其实就那么一点。</p>
-<p>接下来，就是分析这些数据里隐藏的信息了。</p>
-<p>我有6个目标：</p>
-<ol>
-<li>列出被引用最多的文章</li>
-<li>列出被引用最多的作者</li>
-<li>列出写最多文章的作者</li>
-<li>列出被引用最多的出版商</li>
-<li>标题里的词频分析</li>
-<li>摘要里的词频分析</li>
-</ol>
-<p>为了快速地进行分析运算，我打算使用pandas包作为运算工具，matplotlib作为最后的画图工具，下面是我的准备工作：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">%matplotlib notebook  <span class="comment"># 为了在jupyter notebook 里inline 显示图像</span></div><div class="line"></div><div class="line">mldf = pd.read_csv(<span class="string">'csv/ml.csv'</span>, names=[<span class="string">'Title'</span>, <span class="string">'Author'</span>, <span class="string">'Year'</span>, <span class="string">'CitedCount'</span>, <span class="string">'Publisher'</span>, <span class="string">'Abstract'</span>])</div><div class="line">dmdf = pd.read_csv(<span class="string">'csv/dm.csv'</span>, names=[<span class="string">'Title'</span>, <span class="string">'Author'</span>, <span class="string">'Year'</span>, <span class="string">'CitedCount'</span>, <span class="string">'Publisher'</span>, <span class="string">'Abstract'</span>])</div><div class="line">dldf = pd.read_csv(<span class="string">'csv/dl.csv'</span>, names=[<span class="string">'Title'</span>, <span class="string">'Author'</span>, <span class="string">'Year'</span>, <span class="string">'CitedCount'</span>, <span class="string">'Publisher'</span>, <span class="string">'Abstract'</span>])</div><div class="line">nndf = pd.read_csv(<span class="string">'csv/nn.csv'</span> , names=[<span class="string">'Title'</span>, <span class="string">'Author'</span>, <span class="string">'Year'</span>, <span class="string">'CitedCount'</span>, <span class="string">'Publisher'</span>, <span class="string">'Abstract'</span>])</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_top</span><span class="params">(group)</span>:</span>  <span class="comment"># 把DataFrame根据CitedCount倒序排列</span></div><div class="line">    <span class="keyword">return</span> group.sort_index(by=<span class="string">'CitedCount'</span>, ascending=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">ml_top = get_top(mldf)</div><div class="line">dm_top = get_top(dmdf)</div><div class="line">dl_top = get_top(dldf)</div><div class="line">nn_top = get_top(nndf)</div><div class="line"></div><div class="line">dfs = &#123;  <span class="comment"># 创建一个DataFrame的字典， 以便后面的遍历</span></div><div class="line">    <span class="string">'ml'</span>: ml_top,</div><div class="line">    <span class="string">'dm'</span>: dm_top,</div><div class="line">    <span class="string">'dl'</span>: dl_top,</div><div class="line">    <span class="string">'nn'</span>: nn_top,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="画出最多引用的论文"><a href="#画出最多引用的论文" class="headerlink" title="画出最多引用的论文"></a>画出最多引用的论文</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawMostCitedPaper</span><span class="params">(CountList, TitleList, c=<span class="string">'#E65235'</span>, name=<span class="string">'samplefigure'</span>)</span>:</span></div><div class="line">    fig, ax = plt.subplots(figsize=(<span class="number">10</span>, <span class="number">40</span>))</div><div class="line"></div><div class="line">    l = len(CountList)</div><div class="line">    ax.barh(range(l), CountList, color=c, align=<span class="string">'center'</span>)</div><div class="line">    ax.set_title(<span class="string">'Top'</span> + str(l) + <span class="string">'Cited Paper'</span>, fontsize=<span class="number">14</span>)</div><div class="line">    ax.set_yticks(range(l))</div><div class="line">    ax.set_ylim([<span class="number">0</span>, l])</div><div class="line">    ax.set_yticklabels(TitleList, fontsize=<span class="number">14</span>)</div><div class="line">    ax.set_xlabel(<span class="string">'Citation Count'</span>)</div><div class="line"></div><div class="line"><span class="comment">#     plt.show()</span></div><div class="line"></div><div class="line">    fig.savefig(<span class="string">'img/'</span>+name, bbox_inches=<span class="string">'tight'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 正式开始画</span></div><div class="line">drawMostCitedPaper(ml_top.CitedCount.tolist()[:<span class="number">-100</span>:<span class="number">-1</span>], ml_top100.Title.tolist()[::<span class="number">-1</span>], name=<span class="string">'ml'</span>)</div><div class="line">drawMostCitedPaper(dl_top.CitedCount.tolist()[:<span class="number">-100</span>:<span class="number">-1</span>], dl_top100.Title.tolist()[::<span class="number">-1</span>], c=<span class="string">'#00D680'</span>, name=<span class="string">'dl'</span>)</div><div class="line">drawMostCitedPaper(dm_top.CitedCount.tolist()[:<span class="number">-100</span>:<span class="number">-1</span>], dm_top100.Title.tolist()[::<span class="number">-1</span>], c=<span class="string">'#D866D6'</span>, name=<span class="string">'dm'</span>)</div><div class="line">drawMostCitedPaper(nn_top.CitedCount.tolist()[:<span class="number">-100</span>:<span class="number">-1</span>], nn_top100.Title.tolist()[::<span class="number">-1</span>], c=<span class="string">'#EBC12B'</span>, name=<span class="string">'nn'</span>)</div></pre></td></tr></table></figure>
-<p>图：</p>
-<p><img src="https://www.dropbox.com/s/kwi0f5a896k85f3/ml.png?raw=1" alt="Machine Learning Top 100 Cited Papers"><br><img src="https://www.dropbox.com/s/llhlrubjr9ze1w5/dm.png?raw=1" alt="Data Mining Top 100 Cited Papers"><br><img src="https://www.dropbox.com/s/1fs2co2ls23p5a2/dl.png?raw=1" alt="Deep Learning Top 100 Cited Papers"><br><img src="https://www.dropbox.com/s/4fcw66dpvg08kmn/nn.png?raw=1" alt="Neural Network Top 100 Cited Papers"></p>
-<h4 id="画出最多引用的作者"><a href="#画出最多引用的作者" class="headerlink" title="画出最多引用的作者"></a>画出最多引用的作者</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawTop100CitedPerson</span><span class="params">(topic=<span class="string">'ml'</span>, c=<span class="string">'#E65235'</span>, name=<span class="string">'samplefigure'</span>)</span>:</span></div><div class="line"></div><div class="line">    df = dfs[topic]</div><div class="line"></div><div class="line">    keywords = &#123;</div><div class="line">        <span class="string">'ml'</span> : <span class="string">'Machine Learning'</span>,</div><div class="line">        <span class="string">'nn'</span> : <span class="string">'Neural Network'</span>,</div><div class="line">        <span class="string">'dm'</span> : <span class="string">'Data Mining'</span>,</div><div class="line">        <span class="string">'dl'</span> : <span class="string">'Deep Learning'</span>,</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    authordf = df.groupby([<span class="string">'Author'</span>]).CitedCount.sum()   <span class="comment"># 重要：对group之后的DataFrame执行求和操作</span></div><div class="line">    authordf = authordf.sort_values(ascending=<span class="string">'True'</span>)</div><div class="line"></div><div class="line">    CountList = list(reversed(authordf[:<span class="number">-101</span>:<span class="number">-1</span>].tolist()))</div><div class="line">    NameList = list(reversed(authordf.index.values.tolist()[:<span class="number">-101</span>:<span class="number">-1</span>]))</div><div class="line"></div><div class="line">    Namelist = [unicode(x, errors=<span class="string">'replace'</span>) <span class="keyword">for</span> x <span class="keyword">in</span> Namelist]</div><div class="line"></div><div class="line">    fig, ax = plt.subplots(figsize=(<span class="number">10</span>, <span class="number">40</span>))</div><div class="line"></div><div class="line">    l = len(CountList)</div><div class="line">    ax.barh(range(l), CountList, color=c, align=<span class="string">'center'</span>)</div><div class="line">    ax.set_title(keywords[topic] +<span class="string">' Top '</span> + str(l) + <span class="string">' Cited Person'</span>, fontsize=<span class="number">14</span>)</div><div class="line">    ax.set_yticks(range(l))</div><div class="line">    ax.set_ylim([<span class="number">0</span>, l])</div><div class="line">    ax.set_yticklabels(NameList, fontsize=<span class="number">14</span>)</div><div class="line">    ax.set_xlabel(<span class="string">'Citation Count'</span>)</div><div class="line"></div><div class="line">    plt.show()</div><div class="line"></div><div class="line">    fig.savefig(<span class="string">'img/'</span>+name, bbox_inches=<span class="string">'tight'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 正式开始作图</span></div><div class="line">drawTop100CitedPerson(topic=<span class="string">'ml'</span>, c=<span class="string">'#49C12B'</span>, name=<span class="string">'ml_person'</span>)</div><div class="line">drawTop100CitedPerson(topic=<span class="string">'nn'</span>, c=<span class="string">'#EBC12B'</span>, name=<span class="string">'nn_person'</span>)</div><div class="line">drawTop100CitedPerson(topic=<span class="string">'dm'</span>, c=<span class="string">'#D866D6'</span>, name=<span class="string">'dm_person'</span>)</div><div class="line">drawTop100CitedPerson(topic=<span class="string">'dl'</span>, c=<span class="string">'#00D680'</span>, name=<span class="string">'dl_person'</span>)</div></pre></td></tr></table></figure>
-<p>结果如下：</p>
-<p><img src="https://www.dropbox.com/s/azt7mt00ybg0zr4/ml_person.png?raw=1" alt="Machine Learning Top 100 Cited Author"><br><img src="https://www.dropbox.com/s/80jn4nqgx6x4r2t/dm_person.png?raw=1" alt="Data Mining Top 100 Cited Author"><br><img src="https://www.dropbox.com/s/m295o3ajxt2kada/dl_person.png?raw=1" alt="Deep Learning Top 100 Cited Author"><br><img src="https://www.dropbox.com/s/522ubgw63n3axql/nn_person.png?raw=1" alt="Neural Network Top 100 Cited Author"></p>
-<h4 id="列出写最多产的作者"><a href="#列出写最多产的作者" class="headerlink" title="列出写最多产的作者"></a>列出写最多产的作者</h4><p>因为代码和最多引用作者大同小异，所以在下面就不列出来了，有兴趣的朋友可以在文末找到链接。</p>
-<p>结果是这样：</p>
-<p><img src="https://www.dropbox.com/s/nb0q5ofzd262tq1/ml_prolific_author.png?raw=1" alt="Machine Learning Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/pp25ql47iytq3en/dm_prolific_author.png?raw=1" alt="Data Mining Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/agj3ursey1yapxu/dl_prolific_author.png?raw=1" alt="Deep Learning Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/tb7yueo0e8544if/nn_prolific_author.png?raw=1" alt="Neural Network Top 100 Prolific Author"></p>
-<p>有意思的一点是，在Machine Learning领域，前100多产的作者里面，<strong>有71位都是华人</strong>，但是在前100被引用次数最多的作者里面，<strong>只有27位是华人</strong>。</p>
-<h4 id="列出被引用最多的出版商"><a href="#列出被引用最多的出版商" class="headerlink" title="列出被引用最多的出版商"></a>列出被引用最多的出版商</h4><p><img src="https://www.dropbox.com/s/v2lr60d4z39bosn/ml_journal.png?raw=1" alt="Machine Learning Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/u3vuo0mjy0pp8c9/dm_journal.png?raw=1" alt="Data Mining Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/p0hmft1strhctwi/dl_journal.png?raw=1" alt="Deep Learning Top 100 Prolific Author"><br><img src="https://www.dropbox.com/s/pfhycj6ptr5macq/nn_journal.png?raw=1" alt="Neural Network Top 100 Prolific Author"></p>
-<h4 id="标题里的词频分析"><a href="#标题里的词频分析" class="headerlink" title="标题里的词频分析"></a>标题里的词频分析</h4><p>我想知道在这二十几万篇论文标题里面出现次数最多的词语是什么。词频很好计算，用我们刚刚的DataFrame，改一下过滤条件，再排个序，就可以做到。<br>为了把频率以直观的方式表现出来，我选择用 <em>词云</em> 的形式。</p>
-<p>Python里有一个专门做词云的包<a href="https://github.com/amueller/word_cloud" target="_blank" rel="external">WordCloud</a>， 简单易用。想要知道更多关于使用WordCloud的信息，可以参见我<a href="https://zhuanlan.zhihu.com/p/21807428" target="_blank" rel="external">上一篇博客</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 分词并获得词根，以此来累计频率</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getWordCount</span><span class="params">(df)</span>:</span></div><div class="line">    dflist = df.Abstract.tolist()</div><div class="line"></div><div class="line"><span class="comment">#     tagged_corpus = [pos_tag(word_tokenize(document)) for document in dflist]</span></div><div class="line">    tagged_corpus = []</div><div class="line">    <span class="keyword">for</span> document <span class="keyword">in</span> dflist:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            tmp = word_tokenize(document)</div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        tagged_corpus.append(pos_tag(tmp))</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lemmatize</span><span class="params">(token, tag)</span>:</span></div><div class="line">        <span class="keyword">if</span> tag.lower() <span class="keyword">in</span> [<span class="string">'n'</span>, <span class="string">'v'</span>]:</div><div class="line">            <span class="keyword">return</span> lemmatizer.lemmatize(token, tag)</div><div class="line">        <span class="keyword">return</span> token</div><div class="line">    lemmatizer = WordNetLemmatizer()</div><div class="line"></div><div class="line">    lemmatized_corpus = [[lemmatize(token, tag) <span class="keyword">for</span> token, tag <span class="keyword">in</span> document] <span class="keyword">for</span> document <span class="keyword">in</span> tagged_corpus]</div><div class="line"></div><div class="line">    tmp = []</div><div class="line">    <span class="keyword">for</span> title <span class="keyword">in</span> lemmatized_corpus:</div><div class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> title:</div><div class="line">            tmp.append(word.lower())</div><div class="line"></div><div class="line">    lemmatized_corpus = tmp</div><div class="line"></div><div class="line">    mystopwords = [</div><div class="line">        <span class="string">','</span>,</div><div class="line">        <span class="string">':'</span>,</div><div class="line">        <span class="string">';'</span>,</div><div class="line">        <span class="string">'.'</span>,</div><div class="line">        <span class="string">'('</span>,</div><div class="line">        <span class="string">')'</span>,</div><div class="line">        <span class="string">'['</span>,</div><div class="line">        <span class="string">']'</span>,</div><div class="line">        <span class="string">"'s"</span>,</div><div class="line">        <span class="string">'-'</span>,</div><div class="line">        <span class="string">'?'</span>,</div><div class="line">        <span class="string">"'"</span>,</div><div class="line">        <span class="string">'%'</span>,</div><div class="line">        <span class="string">'&amp;'</span>,</div><div class="line">        <span class="string">'...'</span>,</div><div class="line">        <span class="string">'…'</span>,</div><div class="line">        <span class="string">'.'</span></div><div class="line"></div><div class="line">    ]</div><div class="line"></div><div class="line"></div><div class="line">    count = Counter(tmp).items()</div><div class="line">    count = sorted(count, key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</div><div class="line">    count = [(w, c) <span class="keyword">for</span> w, c <span class="keyword">in</span> count <span class="keyword">if</span> w.lower() <span class="keyword">not</span> <span class="keyword">in</span> stopwords.words(<span class="string">'english'</span>) <span class="keyword">and</span> w <span class="keyword">not</span> <span class="keyword">in</span> mystopwords]</div><div class="line">    <span class="keyword">return</span> count</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义词云函数</span></div><div class="line"><span class="comment">#-*- coding: utf-8 -*-</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawWordCloud</span><span class="params">(frequency, name=<span class="string">'samplecloud'</span>)</span> :</span></div><div class="line">    <span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread</div><div class="line">    <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">    <span class="keyword">from</span> progressbar <span class="keyword">import</span> ProgressBar</div><div class="line">    <span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud, ImageColorGenerator</div><div class="line">    %matplotlib notebook</div><div class="line"></div><div class="line"></div><div class="line">    fig, ax = plt.subplots(figsize=(<span class="number">40</span>, <span class="number">40</span>), dpi=<span class="number">60</span>)</div><div class="line">    img_colors = ImageColorGenerator(img_mask)</div><div class="line"></div><div class="line">    wc = WordCloud(background_color=<span class="string">"white"</span>,</div><div class="line">    max_font_size=<span class="number">200</span>, <span class="comment">#字体最大值</span></div><div class="line">    random_state=<span class="number">2</span>,</div><div class="line">    relative_scaling=<span class="number">1</span>,)</div><div class="line"><span class="comment">#     prefer_horizontal=True )</span></div><div class="line"><span class="comment">#     ranks_only=True)</span></div><div class="line"></div><div class="line">    wc.fit_words(frequency)</div><div class="line"></div><div class="line">    plt.imshow(wc)</div><div class="line">    plt.axis(<span class="string">'off'</span>)</div><div class="line"></div><div class="line">    plt.show()</div><div class="line">    plt.savefig(<span class="string">'img/'</span>+name)</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 正式画图</span></div><div class="line"><span class="keyword">for</span> topic <span class="keyword">in</span> dfs:</div><div class="line">    df = dfs[topic]</div><div class="line">    count = getWordCount(df)</div><div class="line">    drawWordCloud(count, name=topic + <span class="string">'_wordcloud'</span>)</div></pre></td></tr></table></figure>
-<p>下面是结果：</p>
-<p>Machine Learning:</p>
-<p><img src="https://www.dropbox.com/s/mifsvubh7ceohn6/ml_wordcloud06.png?raw=1" alt=""></p>
-<p>Data Mining:</p>
-<p><img src="https://www.dropbox.com/s/7df9hwe7vpqii1z/dm_wordcloud05.png?raw=1" alt=""></p>
-<p>Deep Learning:</p>
-<p><img src="https://www.dropbox.com/s/dj27rcxptfp11gv/dl_wordcloud05.png?raw=1" alt=""></p>
-<p>Neural Networks:</p>
-<p><img src="https://www.dropbox.com/s/5tq1rpdp7slo82v/nn_wordcloud06.png?raw=1" alt=""></p>
-<p>源代码：<a href="https://www.dropbox.com/s/j0zh9v5u5zpz1kf/main.ipynb" target="_blank" rel="external">爬虫</a> 和 <a href="https://www.dropbox.com/s/fdm7ull5g6v5z7i/%E5%A4%84%E7%90%86.ipynb" target="_blank" rel="external">处理</a></p>
-<p>谢绝转载</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Machine-Learning-Scholar-Rank/" data-id="ciuxzwabe0000kuayvdjdcjnr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
@@ -963,23 +616,6 @@
 
 <script src="/js/script.js"></script>
 
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
