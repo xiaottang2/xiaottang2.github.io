@@ -3,7 +3,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>question_diff_privacy | Xiaoting Tang&#39;s Blog</title>
+  <title>Questions about differential privacy | Xiaoting Tang&#39;s Blog</title>
   <meta name="author" content="Tang Xiaoting">
   
   <meta name="description" content="My blog. Technology about deep learning and data visualization">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="question_diff_privacy"/>
+  <meta property="og:title" content="Questions about differential privacy"/>
   <meta property="og:site_name" content="Xiaoting Tang&#39;s Blog"/>
 
   
@@ -33,8 +33,8 @@
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
   <header id="header" class="inner"><div class="alignleft">
-  <h2><a href="/">Xiaoting Tang&#39;s Blog</a></h2>
-  <h3><a href="/"></a></h3>
+  <h1><a href="/">Xiaoting Tang&#39;s Blog</a></h>
+  <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
   <ul>
@@ -58,7 +58,7 @@
       
       
   
-    <h1 class="title">question_diff_privacy</h1>
+    <h1 class="title">Questions about differential privacy</h1>
   
 
     </header>
@@ -79,7 +79,7 @@
 <p>$ x_{new patient} = {avg}_2\times1001 - {avg}_1\times1000 $</p>
 <p>Now that you see how insecure an aggregate function can be, let’s find out what the equation $$Pr[\mathcal{M}(d)=\xi]\leq e^\epsilon Pr[\mathcal{M}(d’)=\xi]+\delta$$ has to say.</p>
 <p>According to the theory(see the book mentioned above, the first chapter), a function $f$ can be protected by a mechanism $\mathcal{M}$ like this: $\mathcal{M}(d) = f(d) + \mathcal{N}(0, \sigma^2 S_f^2)$, where $\mathcal{N}$ is a normal distribution:<br>$$ \mathcal{N}(\delta, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\delta)^2}{2\sigma^2}} $$</p>
-<p>If the data is released after noise is added, K would only get<br>$$ ({avg}_2+\mathcal{N}(0, \sigma^2S_f^2))\times1001 - ({avg}_1+\mathcal{N}(0, \sigma^2S<em>f^2))\times1000<br>= x</em>{new patient} + 1001\times\mathcal{N}(0, \sigma^2S_f^2) - 1000\times\mathcal{N}(0, \sigma^2S_f^2) $$</p>
+<p>If the data is released after noise is added, K would only get<br>$({avg}_2+\mathcal{N}(0, \sigma^2S_f^2))\times1001 - ({avg}_1+\mathcal{N}(0, \sigma^2S<em>f^2))\times1000<br>= x</em>{new patient} + 1001\times\mathcal{N}(0, \sigma^2S_f^2) - 1000\times\mathcal{N}(0, \sigma^2S_f^2)$$</p>
 
       
     </div>
