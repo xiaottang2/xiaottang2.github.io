@@ -3,7 +3,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tensorflow Operations[1] | Xiaoting Tang&#39;s Blog</title>
+  <title>projects | Xiaoting Tang&#39;s Blog</title>
   <meta name="author" content="Tang Xiaoting">
   
   <meta name="description" content="My blog. Technology about deep learning and data visualization">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Tensorflow Operations[1]"/>
+  <meta property="og:title" content="projects"/>
   <meta property="og:site_name" content="Xiaoting Tang&#39;s Blog"/>
 
   
@@ -49,44 +49,27 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
   
   <div class="post-content">
     <header>
       
-        <time datetime="2016-11-02T15:11:26.000Z"><a href="/2016/11/02/tensorflow-few-operations/">2016-11-02</a></time>
-      
       
   
-    <h1 class="title">Tensorflow Operations[1]</h1>
+    <h1 class="title">projects</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>今天在看paper的时候,遇到了以下几个之前没有见过的tensorflow operation.<br>    <em>tf.mul</em><br>    <em>tf.group</em><br>    <em>tf.control_dependencies</em><br>    <em>tf.assign_add</em><br>    <em>tf.slice</em></p>
-<p>前四个比较简单,分别是<br>    tf.mul: element-wise 乘法,可用于标量相乘或同形状矩阵相乘 e.g tf.mul([1,2,3], [2,3,4]) = [2, 6, 12]<br>    tf.group: 把operation打包成一个, 运行打包好的operation就可以执行全部<br>    tf.control_dependencies: 和python的with一起用, 例如with tf.control_dependencies(a, b, c):<br>                                d<br>                                e<br>                                f<br>                则d,e,f就一定会在a, b, c运行之后再运行<br>    tf.assign_add: e.g.tf.assign_add(a, v)表示把值v加到a上并返回结果</p>
-<p>第四个比较难. tf.slice(input, [1, 0, 0], [1, 1, 3])的意思是:</p>
-<pre><code># &apos;input&apos; is [[[1, 1, 1], [2, 2, 2]],
-#             [[3, 3, 3], [4, 4, 4]],
-#             [[5, 5, 5], [6, 6, 6]]]
-tf.slice(input, [1, 0, 0], [1, 1, 3]) ==&gt; [[[3, 3, 3]]]
-tf.slice(input, [1, 0, 0], [1, 2, 3]) ==&gt; [[[3, 3, 3],
-                                            [4, 4, 4]]]
-tf.slice(input, [1, 0, 0], [2, 1, 3]) ==&gt; [[[3, 3, 3]],
-                                           [[5, 5, 5]]]
-</code></pre>
+        <p>This is where projects go</p>
+
       
     </div>
     <footer>
       
 
         
-        
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2016/10/31/question-diff-privacy/">Questions about differential privacy</a>
-          </div>
-          <div class="clearfix"></div>
         
 
         
@@ -97,8 +80,8 @@ tf.slice(input, [1, 0, 0], [2, 1, 3]) ==&gt; [[[3, 3, 3]],
             
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2016/11/02/tensorflow-few-operations/">
-                  http://yoursite.com/2016/11/02/tensorflow-few-operations/
+                <a href="/projects/index.html">
+                  http://yoursite.com/projects/index.html
                 </a>
               </span>
             
