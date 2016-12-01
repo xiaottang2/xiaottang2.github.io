@@ -89,7 +89,7 @@
 <ul>
 <li>How do we deal with emoji?</li>
 </ul>
-<p>Each emoji has a corresponding description in the <a href="http://unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="external">Unicode dataset</a>. For example, 😂’s descriiption is <code>face with tears of joy</code>. However, this kind of description does not couple with what the tweets usually say. Instead, 😂 might better descripted as combination of tokens of the emotion: “laugh happy joy”. Moreover, adding tokens like “tears” or “cry” might have a negative effect on the senmatic meaning of the sentence.</p>
+<p>Each emoji has a corresponding description in the <a href="http://unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="external">Unicode dataset</a>. For example, 😂’s description is <code>face with tears of joy</code>. However, this kind of description does not couple with what the tweets usually say. Instead, 😂 might better descripted as combination of tokens of the emotion: “laugh happy joy”. Moreover, adding tokens like “tears” or “cry” might have a negative effect on the senmatic meaning of the sentence.</p>
 <p>After trying many different classifiers, I found linearSVM to be the best, when used with PCA.</p>
 <p><img src="https://www.dropbox.com/s/574lxomer2uc27h/airline_pca.png?raw=1" alt=""></p>
 <p>Here the <a style="color:red">red</a> dots are <strong>negative</strong> tweets, the <a style="color:blue">blue</a> dots are <strong>positive</strong> tweets and the <a style="color:cyan">cyan</a> dots are <strong>neutral</strong> ones. The 16 plots are drawn from combinations of different principal components. </p>
