@@ -63,7 +63,17 @@
     <div class="entry">
       
         <h2 id="Tic-Tac-Toe-AI-using-MDP-and-Q-learning"><a href="#Tic-Tac-Toe-AI-using-MDP-and-Q-learning" class="headerlink" title="Tic Tac Toe AI using MDP and Q-learning"></a>Tic Tac Toe AI using MDP and Q-learning</h2><p>Tic Tac Toe is classic board game and the <a href="https://en.wikipedia.org/wiki/Minimax" target="_blank" rel="external">algorithmic approach</a> of designing AI for it has been extensively studies, which usually requires building model according to the rules of game. It is desirable if we can design an AI without having the knowledge of the rule but by letting the agent <strong>learn how to play</strong> simply by trial and error. </p>
-<p><img src="../../assets/Q-learning.png" alt="Q-learning"></p>
+<p><img src="https://www.dropbox.com/s/x45osxmvj3jty24/Q-learning.png?raw=1" alt="Q-learning"></p>
+<p>This project addresses this issue by using model-free Q-learning. That is, the agent won’t be able to, or need to, understand the rule of the game. It masters the game by playing it for many times, usually more than 10 thousands of time.</p>
+<p>As the total number (5478) of game states of TicTacToe is manageable, we can use a simple Q function - a Python dictionary. </p>
+<p>The following video shows the Q value of different possible actions in the board (i.e. where to put the ‘X’ or ‘O’). The agent always choose the highest Q value because Q value is a quantitative measure of how good the move is.</p>
+<!-- <iframe src="https://player.vimeo.com/video/193814558" width="640" height="845" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/193814558">Tic Tac Toe AI</a> from <a href="https://vimeo.com/user28072024">Jason</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+<p>Some questions remains:</p>
+<ul>
+<li>How do we trade-off between exploration and exploitation?</li>
+<li>How do we design the decay of discount rate?</li>
+</ul>
 
       
     </div>
