@@ -62,19 +62,34 @@
     </header>
     <div class="entry">
       
-        <h2 id="Tic-Tac-Toe-AI-using-MDP-and-Q-learning"><a href="#Tic-Tac-Toe-AI-using-MDP-and-Q-learning" class="headerlink" title="Tic Tac Toe AI using MDP and Q-learning"></a>Tic Tac Toe AI using MDP and Q-learning</h2><p>Tic Tac Toe is classic board game and the <a href="https://en.wikipedia.org/wiki/Minimax" target="_blank" rel="external">algorithmic approach</a> of designing AI for it has been extensively studies, which usually requires building model according to the rules of game. It is desirable if we can design an AI without having the knowledge of the rule but by letting the agent <strong>learn how to play</strong> simply by trial and error. </p>
-<p><img src="https://www.dropbox.com/s/x45osxmvj3jty24/Q-learning.png?raw=1" alt="Q-learning"></p>
-<p>This project addresses this issue by using model-free Q-learning. That is, the agent won’t be able to, or need to, understand the rule of the game. It masters the game by playing it for many times, usually more than 10 thousands of time.</p>
-<p>As the total number (5478) of game states of TicTacToe is manageable, we can use a simple Q function - a Python dictionary. </p>
+        <h3 id="Tic-Tac-Toe-AI-using-MDP-and-Q-learning"><a href="#Tic-Tac-Toe-AI-using-MDP-and-Q-learning" class="headerlink" title="Tic Tac Toe AI using MDP and Q-learning"></a><a name="tictactoe"></a>Tic Tac Toe AI using MDP and Q-learning</h3><p>Tic Tac Toe is classic board game and the <a href="https://en.wikipedia.org/wiki/Minimax" target="_blank" rel="external">algorithmic approach</a> of designing AI for it has been extensively studies, which usually requires building model according to the rules of game. It is desirable if we can design an AI without having the knowledge of the rule but by letting the agent <strong>learn how to play</strong> simply by trial and error. </p>
+<p><img src="https://www.dropbox.com/s/x45osxmvj3jty24/Q-learning.png?raw=1" alt=""></p>
+<p>This project addresses this issue by using model-free Q-learning. That is, the agent won’t be able to, or need to, understand the rule of the game. It masters the game by playing it for many times, usually more than 10 thousands of time, and then memorize the relationships between its moves and rewards.</p>
+<p>As the total number (5478) of game states of TicTacToe is manageable, we can use a simple Q function - a Python dictionary. In a more complicated scence, for example, if we are dealing with Go, then we might need to use neural network to handle large number of states.</p>
 <p>The following video shows the Q value of different possible actions in the board (i.e. where to put the ‘X’ or ‘O’). The agent always choose the highest Q value because Q value is a quantitative measure of how good the move is.</p>
-<p><iframe src="https://player.vimeo.com/video/193817765" width="640" height="530" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe></p>
-<p><a href="https://vimeo.com/193817765" target="_blank" rel="external">Tic Tac Toe AI</a> from <a href="https://vimeo.com/user28072024" target="_blank" rel="external">Jason</a> on <a href="https://vimeo.com" target="_blank" rel="external">Vimeo</a>.</p>
+<iframe src="https://player.vimeo.com/video/193817765" width="640" height="530" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
 
 <p>Some questions remains:</p>
 <ul>
 <li>How do we trade-off between exploration and exploitation?</li>
 <li>How do we design the decay of discount rate?</li>
 </ul>
+<hr>
+<h3 id="Airline-Tweets-Sentimental-Analysis"><a href="#Airline-Tweets-Sentimental-Analysis" class="headerlink" title="Airline Tweets Sentimental Analysis"></a><a name="airline"></a>Airline Tweets Sentimental Analysis</h3><p>This is text classification <a href="https://inclass.kaggle.com/c/cityu-cs4487-2016-assignment-1" target="_blank" rel="external">competition</a>, where we build models to predict whether a tweet is positive or negative. Take a look at the training texts:</p>
+<pre><code>@SouthwestAir rocks! Open letter to flight attendant. http://t.co/zFrOINPSzI  &amp;lt; my child was inspired.  Thank you.,0
+&quot;@SouthwestAir, answered right away for a new res, but can&apos;t rebook the people that were supposed to leave today? Worst customer service.&quot;,2
+@SouthwestAir we didn&apos;t nothing was ruined just wet. Just frustrating when after traveling for 12 hours you can&apos;t change into clean clothes,2
+@SouthwestAir it took ages for one snapchat story to load. one. ONE. I will demolish you,2
+@SouthwestAir I would love to go to the #DestinationDragons @ImagineDragons show tomorrow in Utah at @VelourLive! I&apos;ve been trying so hard.,1
+&quot;@SouthwestAir yes, very much so! I was looking forward to using your airlines for future flights but never again.&quot;,2
+@SouthwestAir IM NOT THO 😭😭💔💔💔💔💔💔💔,1
+</code></pre><p>Before stepping into building models, it is obvious that the text contains many unnecessary information like <code>@SouthwestAir</code>, links, punctuations, and some potentially usful information like emoji. We can clean the texts by removing the unuseful symbols. </p>
+<p>But here is the problem: </p>
+<ul>
+<li>How do we deal with emoji?</li>
+</ul>
+<p>Each emoji has a corresponding description in the <a href="http://unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="external">Unicode dataset</a>. For example, 😂’s descriiption is <code>face with tears of joy</code>. However, this kind of description does not couple with what the tweets usually say. Instead, 😂 might better descripted as combination of tokens of the emotion: “laugh happy joy”. Moreover, adding tokens like “tears” or “cry” might have a negative effect on the senmatic meaning of the sentence.</p>
+<p>After trying many different classifiers, I found linearSVM to be the best, when used with PCA.</p>
 
       
     </div>
@@ -93,7 +108,7 @@
               <span class="from-link">
                 <em>本文链接地址:</em>
                 <a href="/projects/index.html">
-                  http://yoursite.com/projects/index.html
+                  http://xiaottang2.github.io/projects/index.html
                 </a>
               </span>
             
@@ -124,7 +139,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
 </section>
