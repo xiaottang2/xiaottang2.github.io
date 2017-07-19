@@ -1,4 +1,157 @@
-<!DOCTYPE html><html lang="default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 机器学习论文的统计 · Xiaoting Tang's Site</title><meta name="description" content="机器学习论文的统计 - Tang Xiaoting"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://xiaottang2.github.io/atom.xml" title="Xiaoting Tang's Site"></head><body><div class="wrap"><header><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/xiaottang2" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">机器学习论文的统计</h1><div class="post-info">Aug 15, 2016</div><div class="post-content"><p>这是一篇统计IEEE上关于机器学习论文的文章。<br>我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？<br>于是有了这篇文章。</p>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xiaoting Tang&#39;s Site</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://xiaottang2.github.io/"/>
+  <updated>2017-07-19T07:31:20.000Z</updated>
+  <id>http://xiaottang2.github.io/</id>
+  
+  <author>
+    <name>Tang Xiaoting</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wonder Woman Theme -- Music Engraving With Lilypond</title>
+    <link href="http://xiaottang2.github.io/2017/07/19/Wonder-Woman-Theme-Music-Engraving-With-Lilypond/"/>
+    <id>http://xiaottang2.github.io/2017/07/19/Wonder-Woman-Theme-Music-Engraving-With-Lilypond/</id>
+    <published>2017-07-19T07:31:20.000Z</published>
+    <updated>2017-07-19T07:31:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>So recently I was learning how to write MIDI music with a normal keyboard, instead of a professional MIDI keyboard, which often cost you 200-400 dollars. The music that I had in mind is the bad ass theme in the recent “Wonder Woman” movie.</p>
+<a id="more"></a>
+<p>It turns out that there are several pretty matured tool for writing music with “code-like” command, such as <a href="https://www.ctan.org/pkg/musixtex?lang=en" target="_blank" rel="external">MusiXTex</a> and <a href="http://lilypond.org" target="_blank" rel="external">Lilypond</a>. (For WYSIWYG folks, check out <a href="https://musescore.org/" target="_blank" rel="external">MuseScore</a>)</p>
+<p>However, MusiXTex, as reflected by postfix, is only a music typesetting tool based on  \(\TeX\). It supports almost any kind of music engraving, but not outputing MIDI. This means that although it outputs beautifully engraved music sheets as PDF files, it cannot output MIDI files that can later be played through your MIDI software.</p>
+<p>On the contrary, Lilypond is capable of both music engraving and MIDI creation. In fact, it is the team who created MusiXTex that created Lilypond (Years )later, after they abandoned the work of pre-processing package for MusiXTex.</p>
+<p>Let walk through a basic Lilypond program and see how it works.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">\version &quot;2.18.2&quot;</div><div class="line">\relative c&apos; &#123;</div><div class="line">c d e f g a b</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>So this is a HelloWorld program in Lilypond. As you might guess, the output of this program is just a sequence of notes from c(do) to b(ti):<br><img src="helloworld_notes.png" alt=""></p>
+<p>Let’s pause it here for a moment and try to understand the difference between this and <a href="https://en.wikipedia.org/wiki/WYSIWYM" target="_blank" rel="external">WYSIWYM</a></p>
+<p>Imagine that we are not composing this simple HelloWorld music, but a much larger one. Let say the total number of notes in this piece is 1000. Now, the amount of work that you must do in a WYSIWYG application, is 1000 times of the time it takes to</p>
+<ol>
+<li>Move cursor from the last note to the current one</li>
+<li>Select the duration of the note (1, 1/2, 1/4 etc.)</li>
+<li>Confirm adding the note</li>
+</ol>
+<p>I wouldn’t say that it is tremendously time-consuming, but I do get tired easily using this approach.</p>
+<p>On the contrary, when composing in a WYSIWYM fashion, all you ever need to do is <em>typing</em>. The amount of work that you must do in a WYSIWYM is therefore only 1000 times of the time it takes to <em>type a note</em>, which (IMHO) is much quicker.</p>
+<p>Let’s walk through the HelloWorld program we just wrote, line by line.</p>
+<p>The first line <code>\version &quot;2.18.2&quot;</code> tells the Lilypond program what version of the compiler should this file be compiled by. However, it is fine to skip it, and Lilypond will automatically use the correct version (and warn you). I recommend always puttting that in the first line.</p>
+<p>The second line starts with <code>\relative c&#39;</code>, which tells the program that <strong>whatever notes follows, intepret them using ‘relative’ mode and start with the C one octave above the middle C</strong>. The <code>&#39;</code> indicates <strong>one</strong> octave above the middle C. Analogously, <code>&#39;&#39;</code> indicates <strong>two</strong> octaves and so on. If you want to denote a C below the middle C, you may use <code>,</code>. Similarly, <code>,</code> indicates one octave below, <code>,,</code> indicates two octaves below and so on. Additionally, every note must be written in between the curly braces <code>{</code> and <code>}</code>.</p>
+<p>The last part of the jargons is the <strong>relative mode</strong>, which means that <strong>the absolute pitch of every note should be chosen as the nearest one to the last note</strong>. For example, when we type <code>\relative c&#39; { e }</code>, we unambiguously mean the E two pitches higher than C’ ( the C one octave higher than the middle C), because compared with other Es, this E is the closest one. If you need higher E(s), you can type <code>\relative c&#39; { e e&#39; e&#39;&#39; e&#39;&#39;&#39; e, e,, e,,, }</code> etc. Note that the last <code>e,,,</code> is actually the same as the first <code>e</code>.</p>
+<p>This mode should be the most useful one, since most notes in a song are sort of close to each other, instead of sparesely distributed.</p>
+<p>Ok, now we have the basics, let compose the Wonder Woman Theme.</p>
+<p>The code of that theme is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">\relative g&apos; &#123;</div><div class="line">  \clef treble</div><div class="line">  \time 7/4</div><div class="line">  \tempo 4 = 155</div><div class="line">  % Music follows here.</div><div class="line">  r2 r r4. [e8 g b] \bar &quot;.|:&quot; </div><div class="line">  bf8^[g bf g bf g b bf g bf g bf g bf] </div><div class="line">  b^[ g b g b g bf b] r4 r2 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>This will give us the following score:<br><img src="melody.png" alt=""></p>
+<p>Besides a different starting key <code>g&#39;</code>, there are couple of new things here:</p>
+<ul>
+<li>The <code>\clef</code> command, which defines the clef.</li>
+<li>The <code>\time</code> command, which defines the time for each section.</li>
+<li>The <code>\tempo</code> command, which defines the tempo.</li>
+<li><code>%</code>, which defines a comment line.</li>
+</ul>
+<p>The next three lines defines both the melody and rhythm. <code>r</code> means rest. Numbers (<code>2</code>,<code>4</code>,<code>8</code>,<code>16</code> etc.) represent the denominator of the duration of the note. For example, <code>c4</code> means “a C note of 1/4 time”. A single dot <code>.</code> means extending the previous note to its \(1+\frac{1}{2}\) duration. Similarly, two dots <code>..</code> means extending the previous note to its \(1+\frac{1}{2}+\frac{1}{4}\) duration, and so on. The <code>\bar</code> command followed by <code>&quot;.|:&quot;</code> denotes a bold vertical with a colon. The <code>[]</code> command forces the enclosed notes to share the same beam. To force the beam to be upper, we use <code>^</code>. To force it to be lower, we use <code>_</code>.</p>
+<p>You may also notice that only some notes have time values following them, some do not. In Lilypond, notes that do not have time value <em>inherit</em> the time value from previous one. For example, this sequence <code>c4 d ef g a b</code> use 1/4 time value in all notes.</p>
+<p>Enough of terminology, let us analyze the music. I don’t know about you, but for me, this theme song is the primary reason that I would recommand this movie. One of the reason that this theme song is so attracting, according to <a href="https://www.youtube.com/watch?v=Z5vQz4Xz6q8&amp;t=258s" target="_blank" rel="external">this youtuber</a>.</p>
+<p>To export this score to a MIDI file, you use the <code>\midi</code> command, with a proper instrument (cello today). However, I think there are enough commands to learn today, so I’ll skip explaning this command and throw you the entire code for generating both a score as PDF file and the music as a MIDI file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">\version &quot;2.18.2&quot;</div><div class="line"></div><div class="line">\header &#123;</div><div class="line">  title = &quot;Wonder Woman&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">\language &quot;english&quot;</div><div class="line"></div><div class="line">cello = \relative g&apos; &#123;</div><div class="line">  \clef treble</div><div class="line">  \time 7/4</div><div class="line">  \tempo 4 = 155</div><div class="line">  % Music follows here.</div><div class="line">  r2 r r4. [e8 g b] \bar &quot;.|:&quot; |</div><div class="line">  bf8^[g bf g bf g b bf g bf g bf g bf] </div><div class="line">  b^[ g b g b g bf b] r4 r2 </div><div class="line">&#125;</div><div class="line"></div><div class="line">\score &#123;</div><div class="line">  \new Staff \with &#123;</div><div class="line">    instrumentName = &quot;Cello&quot;</div><div class="line">    midiInstrument = &quot;cello&quot;</div><div class="line">  &#125; &#123; \clef bass \cello &#125;</div><div class="line">  \layout &#123; &#125;</div><div class="line">  \midi &#123;</div><div class="line">    \tempo 4=100</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<p>Now, let’s listen to what we’ve created.</p>
+<iframe width="100%" height="160" src="https://clyp.it/z1iuagzd/widget" frameborder="0"></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;So recently I was learning how to write MIDI music with a normal keyboard, instead of a professional MIDI keyboard, which often cost you 200-400 dollars. The music that I had in mind is the bad ass theme in the recent “Wonder Woman” movie.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Lilypond" scheme="http://xiaottang2.github.io/tags/Lilypond/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tensorflow Opeations 的一些坑</title>
+    <link href="http://xiaottang2.github.io/2016/11/02/tensorflow-few-operations/"/>
+    <id>http://xiaottang2.github.io/2016/11/02/tensorflow-few-operations/</id>
+    <published>2016-11-02T15:11:26.000Z</published>
+    <updated>2017-07-19T07:35:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在看paper的时候,遇到了以下几个之前没有见过的tensorflow operation.<br>    <em>tf.mul</em><br>    <em>tf.group</em><br>    <em>tf.control_dependencies</em><br>    <em>tf.assign_add</em><br>    <em>tf.slice</em></p>
+<a id="more"></a>
+<p>前四个比较简单,分别是<br>    tf.mul: element-wise 乘法,可用于标量相乘或同形状矩阵相乘 e.g tf.mul([1,2,3], [2,3,4]) = [2, 6, 12]<br>    tf.group: 把operation打包成一个, 运行打包好的operation就可以执行全部<br>    tf.control_dependencies: 和python的with一起用, 例如with tf.control_dependencies(a, b, c):<br>                                d<br>                                e<br>                                f<br>                则d,e,f就一定会在a, b, c运行之后再运行<br>    tf.assign_add: e.g.tf.assign_add(a, v)表示把值v加到a上并返回结果</p>
+<p>第四个比较难. tf.slice(input, [1, 0, 0], [1, 1, 3])的意思是:</p>
+<pre><code># &apos;input&apos; is [[[1, 1, 1], [2, 2, 2]],
+#             [[3, 3, 3], [4, 4, 4]],
+#             [[5, 5, 5], [6, 6, 6]]]
+tf.slice(input, [1, 0, 0], [1, 1, 3]) ==&gt; [[[3, 3, 3]]]
+tf.slice(input, [1, 0, 0], [1, 2, 3]) ==&gt; [[[3, 3, 3],
+                                            [4, 4, 4]]]
+tf.slice(input, [1, 0, 0], [2, 1, 3]) ==&gt; [[[3, 3, 3]],
+                                           [[5, 5, 5]]]
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天在看paper的时候,遇到了以下几个之前没有见过的tensorflow operation.&lt;br&gt;    &lt;em&gt;tf.mul&lt;/em&gt;&lt;br&gt;    &lt;em&gt;tf.group&lt;/em&gt;&lt;br&gt;    &lt;em&gt;tf.control_dependencies&lt;/em&gt;&lt;br&gt;    &lt;em&gt;tf.assign_add&lt;/em&gt;&lt;br&gt;    &lt;em&gt;tf.slice&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jupyter notebook调用不同environment解决方案</title>
+    <link href="http://xiaottang2.github.io/2016/09/18/the_annoying_jupyter_notebook/"/>
+    <id>http://xiaottang2.github.io/2016/09/18/the_annoying_jupyter_notebook/</id>
+    <published>2016-09-18T15:05:00.000Z</published>
+    <updated>2017-07-19T07:37:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。</p>
+<a id="more"></a>
+<p>我打算在一个新的conda环境里安装tensorflow，我是这么做的：<br>(Mac OS X, GPU enabled, Python 2.7)</p>
+<p>用下面的代码创建一个新的环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conda env create -n tensorflow python=2.7</div></pre></td></tr></table></figure></p>
+<p>之后activate它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source activate tensorflow</div></pre></td></tr></table></figure></p>
+<p>接着安装tensorflow:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow-0.10.0-py2-none-any.whl</div><div class="line">(tensorflow)$ pip install --ignore-installed --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
+<p>成功之后，我很高兴，所以我二话不说就打开了jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ jupyter notebook</div></pre></td></tr></table></figure></p>
+<p>结果，系统报错： <strong>No module named tensorflow</strong><br>于是我退出，用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ which jupyter</div></pre></td></tr></table></figure>查看了一下我正在使用的jupyter, 结果令人失望：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/jasontang/anaconda/bin/jupyter</div></pre></td></tr></table></figure></p>
+<p>根本没有使用tensorflow env里的jupyter，怪不得报错！</p>
+<p>可是我明明转换了环境呀，如果转换环境不能转换executable的路径的话，转换环境又有什么用呢？</p>
+<h3>解决方法</h3>
+
+<p>首先运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -m IPython kernelspec install-self</div></pre></td></tr></table></figure>
+<p>然后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/local/share/jupyter/kernels/python2/kernel.json</div></pre></td></tr></table></figure>
+<p>将 </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="attr">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="attr">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="attr">"argv"</span>: [</div><div class="line">  <span class="string">"/Users/yourname/anaconda/bin/python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>改成<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="attr">"display_name"</span>: <span class="string">"Python 2"</span>,</div><div class="line"> <span class="attr">"language"</span>: <span class="string">"python"</span>,   </div><div class="line"> <span class="attr">"argv"</span>: [</div><div class="line">  <span class="string">"python"</span>,  &lt;-- Change this line</div><div class="line">  <span class="string">"-m"</span>,</div><div class="line">  <span class="string">"ipykernel"</span>,</div><div class="line">  <span class="string">"-f"</span>,</div><div class="line">  <span class="string">"&#123;connection_file&#125;"</span></div><div class="line"> ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3>为什么</h3>
+
+<p>首先，要怪的话就怪jupyter的设计。jupyter使用的kernel是根据kernel.json里定义的python路径来选择，而当我们使用source activate tensorflow的时候，这份kernel.json并没有被改变。<br>当我们将”/Users/yourname/anaconda/bin/python”改成”python”时， 系统会自动去PATH里寻找默认的python executable，这时它会找到环境里的python。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你使用Anaconda作为你的Python管理系统，而且如果你有不同的conda environment，那么接下来我讲的事情你可能会有同感。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习论文的统计</title>
+    <link href="http://xiaottang2.github.io/2016/08/15/Machine-Learning-Scholar-Rank/"/>
+    <id>http://xiaottang2.github.io/2016/08/15/Machine-Learning-Scholar-Rank/</id>
+    <published>2016-08-14T16:11:42.000Z</published>
+    <updated>2017-07-19T07:34:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一篇统计IEEE上关于机器学习论文的文章。<br>我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？<br>于是有了这篇文章。</p>
 <a id="more"></a>
 <p>第一步，是获得数据。这一次我选择了IEEE Xplore作为数据来源。这是它的网站界面：</p>
 <p><img src="https://www.dropbox.com/s/rcmfmshb8vpzk91/Screenshot%202016-08-15%2009.52.50.png?raw=1" alt=""></p>
@@ -101,4 +254,49 @@
 <p><img src="https://www.dropbox.com/s/5tq1rpdp7slo82v/nn_wordcloud06.png?raw=1" alt=""></p>
 <p>源代码：<a href="https://www.dropbox.com/s/j0zh9v5u5zpz1kf/main.ipynb" target="_blank" rel="external">爬虫</a> 和 <a href="https://www.dropbox.com/s/fdm7ull5g6v5z7i/%E5%A4%84%E7%90%86.ipynb" target="_blank" rel="external">处理</a></p>
 <p>谢绝转载</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2016/09/18/the_annoying_jupyter_notebook/" class="prev">上一篇</a><a href="/2016/05/18/重做红楼梦的数据分析/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2017 <a href="http://xiaottang2.github.io">Tang Xiaoting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一篇统计IEEE上关于机器学习论文的文章。&lt;br&gt;我是一个机器学习的新手，一开始我找不到应该读哪些论文，于是我想，干嘛不用python统计一下哪些论文最重要呢？&lt;br&gt;于是有了这篇文章。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重做红楼梦的数据分析-判断前80回后40回是否一个人写的</title>
+    <link href="http://xiaottang2.github.io/2016/05/18/%E9%87%8D%E5%81%9A%E7%BA%A2%E6%A5%BC%E6%A2%A6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    <id>http://xiaottang2.github.io/2016/05/18/重做红楼梦的数据分析/</id>
+    <published>2016-05-18T07:31:20.000Z</published>
+    <updated>2017-07-19T07:33:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>红楼梦的数据分析已经有许多人做过，结论也各不相同。<br>我在知乎上看到两篇帖子：</p>
+<ol>
+<li><a href="https://www.zhihu.com/question/19768898%20%E6%99%BA%E6%85%A7%E6%80%9D%E7%89%B9%E7%9A%84%E5%9B%9E%E7%AD%94" target="_blank" rel="external">通过数据挖掘能分析《红楼梦》各回的真伪吗？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21421723" target="_blank" rel="external">用机器学习判定红楼梦后40回是否曹雪芹所写</a><br>觉得很有意思，于是用自己的方法重做了一次</li>
+</ol>
+<a id="more"></a>
+<p><strong>配置</strong>：<br>我主要使用的编程环境是Jupyter Notebook 4.2.1，因为可以调整每一个代码块，方便<br>纠错什么的。<br>然后我们得用到一个中文分词工具 - Jieba, 是由百度工程师Sun Junyi开发的<br>之后我们还得用到一些做机器学习/数据挖掘的标准包：numpy, matplotlib 和 sklearn</p>
+<p><strong>数据准备</strong>：<br>用爬虫思想，我去这个网站扒下来红楼梦全集，然后剪掉中间所有的换行符，使得每一回只<br>占文档中的一行。这样的话，方便接下来读取。</p>
+<p>直接上代码：<br>一、导入各种需要的包<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*-coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> bs</div><div class="line"></div><div class="line">book = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">120</span>):</div><div class="line">    print(<span class="string">"处理第&#123;&#125;回..."</span>.format(i+<span class="number">1</span>))</div><div class="line">    <span class="keyword">if</span> i+<span class="number">1</span>&lt;<span class="number">10</span>:</div><div class="line">        url = <span class="string">"http://www.purepen.com/hlm/00&#123;&#125;.htm"</span>.format(i+<span class="number">1</span>)</div><div class="line">    <span class="keyword">elif</span> i+<span class="number">1</span> &lt; <span class="number">100</span>:</div><div class="line">        url = <span class="string">"http://www.purepen.com/hlm/0&#123;&#125;.htm"</span>.format(i+<span class="number">1</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        url = <span class="string">"http://www.purepen.com/hlm/&#123;&#125;.htm"</span>.format(i+<span class="number">1</span>)</div><div class="line">    request = urllib2.Request(url)</div><div class="line">    response = urllib2.urlopen(request)</div><div class="line">    bsObj = bs(response.read().decode(<span class="string">'gb18030'</span>))</div><div class="line">    chapter = bsObj.table.font.contents[<span class="number">0</span>]</div><div class="line">    book.append(chapter)</div></pre></td></tr></table></figure></p>
+<p>直接上代码：<br>一、导入各种需要的包<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D <span class="comment"># 因为后面会用到3d作图</span></div><div class="line"><span class="keyword">import</span> operator</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;红楼梦的数据分析已经有许多人做过，结论也各不相同。&lt;br&gt;我在知乎上看到两篇帖子：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/19768898%20%E6%99%BA%E6%85%A7%E6%80%9D%E7%89%B9%E7%9A%84%E5%9B%9E%E7%AD%94&quot;&gt;通过数据挖掘能分析《红楼梦》各回的真伪吗？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/21421723&quot;&gt;用机器学习判定红楼梦后40回是否曹雪芹所写&lt;/a&gt;&lt;br&gt;觉得很有意思，于是用自己的方法重做了一次&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://xiaottang2.github.io/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+</feed>
