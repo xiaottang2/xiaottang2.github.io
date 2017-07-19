@@ -145,6 +145,37 @@ tf.slice(input, [1, 0, 0], [2, 1, 3]) ==&gt; [[[3, 3, 3]],
   </entry>
   
   <entry>
+    <title>tf.nn.conv2d里的padding解析</title>
+    <link href="http://xiaottang2.github.io/2016/09/18/SAME_is_not_same_in_tf/"/>
+    <id>http://xiaottang2.github.io/2016/09/18/SAME_is_not_same_in_tf/</id>
+    <published>2016-09-18T03:40:00.000Z</published>
+    <updated>2017-07-19T08:49:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。<br>根据<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">CS231n</a>的说法:<br>$$ out\_width = (W-F+2P)/S + 1 $$<br>W是图像宽度，F是filter宽度，P是padding, S是stride。</p>
+<a id="more"></a>
+<p>然而在Tensorflow里却不一样。</p>
+<p>tf.nn.conv2d里的padding有两个选项： ‘SAME’ 和 ‘VALID’。 很多人认为’SAME’就是使得out_width和in_width一样，其实不是的。</p>
+<p>根据官方的<a href="https://www.tensorflow.org/versions/r0.10/api_docs/python/nn.html#convolution" target="_blank" rel="external">计算公式</a>:</p>
+<p>$$ out\_width = ceil(float(in\_width) / float(strides[2])) $$</p>
+<p>举个栗子， in_width = 28， strides = [1, 2, 2, 1] 那么：</p>
+<p>$$ out\_width = ceil( 28. / 2. ) = 14 $$<br>并不是想当然的28哦。</p>
+<p>那么问题来了，为什么要给这个选项取名’SAME’呢？</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Tensorflow的tf.nn.conv2d有个与其他库不一样的地方 – padding。&lt;br&gt;根据&lt;a href=&quot;http://cs231n.github.io/convolutional-networks/&quot;&gt;CS231n&lt;/a&gt;的说法:&lt;br&gt;$$ out\_width = (W-F+2P)/S + 1 $$&lt;br&gt;W是图像宽度，F是filter宽度，P是padding, S是stride。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="http://xiaottang2.github.io/tags/machine-learning/"/>
+    
+      <category term="tensorflow" scheme="http://xiaottang2.github.io/tags/tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
     <title>机器学习论文的统计</title>
     <link href="http://xiaottang2.github.io/2016/08/15/Machine-Learning-Scholar-Rank/"/>
     <id>http://xiaottang2.github.io/2016/08/15/Machine-Learning-Scholar-Rank/</id>
