@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 约瑟夫斯问题 · Xiaoting Tang's Site</title><meta name="description" content="约瑟夫斯问题 - Tang Xiaoting"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://xiaottang2.github.io/atom.xml" title="Xiaoting Tang's Site"></head><body><div class="wrap"><header><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/xiaottang2" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">约瑟夫斯问题</h1><div class="post-info">Aug 6, 2017</div><div class="post-content"><p>本题灵感来源于<a href="https://www.youtube.com/watch?v=uCsD3ZGzMgE" target="_blank" rel="external">Numberphile</a>。</p>
+<p>公元67年，在第一次犹太罗马战役中，罗马军队包围了犹太人的一个小镇Yodfat。当时在镇上的历史学家Flavius Josephus，和在他身边的40名战士，陷入了罗马军队的包围圈，眼看就要被全部俘虏。他们决定宁为玉碎，在被俘虏之前自杀。他们约定了一个特别的自杀方式，41个人围成一个圈，随机选择一个人标记为1号，并按顺时针或者逆时针的方式依次给所有人标号，然后自杀：第1个人杀死第2个人，第3个人杀死第4个人，第5个人杀死第6个人，依次类推。最后，不知道是不是上帝的旨意，Josephus和另外一个士兵成为了最后活下来的两个人，他们最后也没有自杀，而是被俘虏了。</p>
+<p>且不论Josephus和另一个士兵最后没有自杀的行为是否亵渎了和其他人的约定，假设你就是Josephus，而且你不想自杀，你是否能够算出“站在哪个位置，才能活到最后”？或者广义地说，给定一个人数为\(n\)的圈，求\(f(n)\)，使得站在位置\(f(n)\)的人是最后活下来的人。</p>
+<p>当\(n=8\)的示意图，<span style="background:rgb(255,250,0)">黄色</span>代表当前杀手，<span style="background:rgb(255,0,0);color:white">红色</span>代表活着，<span style="background:rgb(255,255,255)">白色</span>代表死亡：<br><img src="http://i.imgur.com/tY7pEXH.gif" alt="Josephus Problem n=8"></p>
+<p>如果我们解出从1到8的 \(f(n)\)，我们可以发现一个明显的规律：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">\(n\)</th>
+<th style="text-align:center">\(f(n)\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>我们可以发现，第一，所有的\(f(n)\)都是奇数。第二，\(f(n)\)似乎在从1，3，5，7…这个序列里面重复。 最重要的观察应该是，当\(n=2^k\)，即n是2的k次方的时候，\(f(n)=1\)。这其实并非偶然。我们其实可以想象，当人数为n，且\(n=2^k\)时，每杀完整整一轮的时候，剩余人数就减半，于是下一轮的杀人过程和当人数为\(2^(k-1)\)的时候应该<strong>完全一样</strong>。以此类推，只要\(n=2^k\)，最后剩下的那个人应该和当n=2的时候剩下的那个人是同一个人。<br>当\(n=2\)时，谁会赢呢？第1个人杀死第2个人，是第1个人赢。</p>
+<p>有了这个发现，剩下的情况就简单一些了。</p>
+<p>剩下的情况就是当n不为2的次方数的时候，所以我们可以假设\(n=2^k+b\)，其中\(2^k&lt; n\)且\(2^{(k+1)}&gt;n\)，即k是以2为底，使得\(2^k\)不超过n的最大次数。或者可以写成\(k=\lfloor \log_2(n) \rfloor\)。这又导致另一个很重要的条件：\(b&lt; n/2\)。所以接下来我们证明。如果\(b=n/2\),则\(n=2^k+n/2\),那么\(n/2=2^k, n=2^{(k+1)}\), 这与我们的假设矛盾。 如果\(b&gt;n/2\),则\(2^k+n/2 &lt; n\)，也就是\(2^k&lt; n/2，2^{(k+1)}&lt; n\)，因为我们假设了\(2^k\)是不超过n的最大的2的次方数，所以也矛盾。</p>
+<p>有了这些条件，我们来观察会发生什么。</p>
+<p>当b个人被杀的时候，因为\(b&lt; n/2\)，所以一轮还没结束，圆圈中还剩下\(2^k\)个人，下一个杀人的人是第\(2b+1\)个人。于是乎，我们可以重新给大家编号，把第\(2b+1\)个人标为1号，第\(2b+2\)个人标为2号，等等。这下最终的赢家是谁？由于现在的情况和当n=2^k的情况一模一样，所以当然是那个重新被标注成第一号的人了。</p>
+<p>于是乎我们得到答案，当\(n=2^k+b\)时，最终赢家是第\(2b+1\)个人。</p>
+<!-- ---原题就这么结束了---
+
+下面我们思考另一个变种情况：如果不是杀掉在你旁边的人，而是隔着一个人呢？
+
+最直接的变化就是，最后生存的人数可能是1个也可能是2个。
+
+   n   |   f(n)    
+----|----
+   1   |   1       
+   2   |   1,2     
+   3   |   3       
+   4   |   1       
+   5   |   3       
+   6   |   5       
+   7   |   7       
+   8   |   1       
+   9   |   3       
+   10  |   5       
+   11  |   7       
+   12  |   9       
+   13  |   11    -->   
+</div></article></div></main><footer><div class="paginator"><a href="/2017/08/06/音乐的频率/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'jasontangs';
+var disqus_identifier = '2017/08/06/约瑟夫斯问题/';
+var disqus_title = '约瑟夫斯问题';
+var disqus_url = 'http://xiaottang2.github.io/2017/08/06/约瑟夫斯问题/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//jasontangs.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://xiaottang2.github.io">Tang Xiaoting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-48829706-3",'auto');ga('send','pageview');</script></body></html>
