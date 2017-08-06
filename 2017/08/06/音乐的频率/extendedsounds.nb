@@ -1,0 +1,149 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4425,        139]
+NotebookOptionsPosition[      3868,        116]
+NotebookOutlinePosition[      4227,        132]
+CellTagsIndexPosition[      4184,        129]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", "n_", "]"}], ":=", 
+  RowBox[{"440", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", "^", 
+      RowBox[{"(", 
+       RowBox[{"1", "/", "12"}], ")"}]}], ")"}], "^", "n"}]}]}]], "Input",
+ CellChangeTimes->{{3.710981777378388*^9, 3.710981792142947*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ff", "[", "n_", "]"}], ":=", 
+  RowBox[{"440", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", "^", 
+      RowBox[{"(", 
+       RowBox[{"1", "/", "24"}], ")"}]}], ")"}], "^", "n"}]}]}]], "Input",
+ CellChangeTimes->{{3.710981803373307*^9, 3.710981813117317*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.mp3\>\""}], ",", 
+     RowBox[{"Play", "[", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         RowBox[{"N", "[", 
+          RowBox[{"ff", "[", "i", "]"}], "]"}], "*", "2", "\[Pi]", " ", "t"}],
+         "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "6", ",", 
+     RowBox[{"6", "+", "24"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7109818144572144`*^9, 3.710981856718616*^9}, {
+  3.710981901129756*^9, 3.710982106881362*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Export","chtype",
+   "\"First argument \\!\\(\\*RowBox[{\\\"\\\\\\\"6\\\\\\\"\\\", \\\"+\\\", \
+\\\"\\\\\\\".mp3\\\\\\\"\\\"}]\\) is not a valid file specification.\"",2,354,
+   33,21172760572237535564,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.710982085288031*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Export","chtype",
+   "\"First argument \\!\\(\\*RowBox[{\\\"\\\\\\\"7\\\\\\\"\\\", \\\"+\\\", \
+\\\"\\\\\\\".mp3\\\\\\\"\\\"}]\\) is not a valid file specification.\"",2,354,
+   34,21172760572237535564,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.710982085305643*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Export","chtype",
+   "\"First argument \\!\\(\\*RowBox[{\\\"\\\\\\\"8\\\\\\\"\\\", \\\"+\\\", \
+\\\"\\\\\\\".mp3\\\\\\\"\\\"}]\\) is not a valid file specification.\"",2,354,
+   35,21172760572237535564,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.710982085318425*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Export\\\", \\\"::\\\", \
+\\\"chtype\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,354,36,21172760572237535564,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.710982085330967*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", 
+   ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", 
+   "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", 
+   ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", 
+   "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", ",", "$Failed", 
+   ",", "$Failed", ",", "$Failed"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7109818582186747`*^9, 3.7109819019460297`*^9, {3.710981956356484*^9, 
+   3.7109819615585127`*^9}, 3.710982085886496*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{Automatic, -7}, {Automatic, 17}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 301, 9, 32, "Input"],
+Cell[862, 31, 297, 9, 32, "Input"],
+Cell[CellGroupData[{
+Cell[1184, 44, 712, 20, 54, "Input"],
+Cell[1899, 66, 326, 7, 24, "Message"],
+Cell[2228, 75, 326, 7, 24, "Message"],
+Cell[2557, 84, 326, 7, 24, "Message"],
+Cell[2886, 93, 342, 7, 24, "Message"],
+Cell[3231, 102, 621, 11, 75, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
