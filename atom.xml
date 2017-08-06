@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaottang2.github.io/"/>
-  <updated>2017-08-06T05:18:40.000Z</updated>
+  <updated>2017-08-06T05:20:12.000Z</updated>
   <id>http://xiaottang2.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://xiaottang2.github.io/2017/08/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E6%96%AF%E9%97%AE%E9%A2%98/"/>
     <id>http://xiaottang2.github.io/2017/08/06/约瑟夫斯问题/</id>
     <published>2017-08-06T05:17:16.000Z</published>
-    <updated>2017-08-06T05:18:40.000Z</updated>
+    <updated>2017-08-06T05:20:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>本题灵感来源于<a href="https://www.youtube.com/watch?v=uCsD3ZGzMgE" target="_blank" rel="external">Numberphile</a>。</p>
-<p>公元67年，在第一次犹太罗马战役中，罗马军队包围了犹太人的一个小镇Yodfat。当时在镇上的历史学家Flavius Josephus，和在他身边的40名战士，陷入了罗马军队的包围圈，眼看就要被全部俘虏。他们决定宁为玉碎，在被俘虏之前自杀。<a id="more"></a>他们约定了一个特别的自杀方式，41个人围成一个圈，随机选择一个人标记为1号，并按顺时针或者逆时针的方式依次给所有人标号，然后自杀：第1个人杀死第2个人，第3个人杀死第4个人，第5个人杀死第6个人，依次类推。最后，不知道是不是上帝的旨意，Josephus和另外一个士兵成为了最后活下来的两个人，他们最后也没有自杀，而是被俘虏了。</p>
+<p>公元67年，在第一次犹太罗马战役中，罗马军队包围了犹太人的一个小镇Yodfat。当时在镇上的历史学家Flavius Josephus，和在他身边的40名战士，陷入了罗马军队的包围圈，眼看就要被全部俘虏，他们决定在这之前自杀。<a id="more"></a>他们约定了一个特别的自杀方式，41个人围成一个圈，随机选择一个人标记为1号，并按顺时针或者逆时针的方式依次给所有人标号，然后自杀：第1个人杀死第2个人，第3个人杀死第4个人，第5个人杀死第6个人，依次类推。最后，不知道是不是上帝的旨意，Josephus和另外一个士兵成为了最后活下来的两个人，他们最后也没有自杀，而是被俘虏了。</p>
 <p>且不论Josephus和另一个士兵最后没有自杀的行为是否亵渎了和其他人的约定，假设你就是Josephus，而且你不想自杀，你是否能够算出“站在哪个位置，才能活到最后”？或者广义地说，给定一个人数为\(n\)的圈，求\(f(n)\)，使得站在位置\(f(n)\)的人是最后活下来的人。</p>
 <p>当\(n=8\)的示意图，<span style="background:rgb(255,250,0)">黄色</span>代表当前杀手，<span style="background:rgb(255,0,0);color:white">红色</span>代表活着，<span style="background:rgb(255,255,255)">白色</span>代表死亡：<br><img src="http://i.imgur.com/tY7pEXH.gif" alt="Josephus Problem n=8"></p>
 <p>如果我们解出从1到8的 \(f(n)\)，我们可以发现一个明显的规律：</p>
@@ -101,7 +101,7 @@
     <summary type="html">
     
       &lt;p&gt;本题灵感来源于&lt;a href=&quot;https://www.youtube.com/watch?v=uCsD3ZGzMgE&quot;&gt;Numberphile&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;公元67年，在第一次犹太罗马战役中，罗马军队包围了犹太人的一个小镇Yodfat。当时在镇上的历史学家Flavius Josephus，和在他身边的40名战士，陷入了罗马军队的包围圈，眼看就要被全部俘虏。他们决定宁为玉碎，在被俘虏之前自杀。
+&lt;p&gt;公元67年，在第一次犹太罗马战役中，罗马军队包围了犹太人的一个小镇Yodfat。当时在镇上的历史学家Flavius Josephus，和在他身边的40名战士，陷入了罗马军队的包围圈，眼看就要被全部俘虏，他们决定在这之前自杀。
     
     </summary>
     
